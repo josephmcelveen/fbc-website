@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Familia AI Phone Agents — Bilingual Reception & Scheduling</title>
-  <meta name="viewport" content="width=deviceWidth, initial-scale=1.0" />
-  <meta name="description" content="Familia AI Phone Agents answer, book, and follow up with your customers in English and Spanish — so you stop losing money to missed calls." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Familia AI Phone Agents answer, book, and follow up with your customers so you stop losing money to missed calls." />
   <style>
     :root {
       --bg: #020309;
@@ -23,6 +23,10 @@
       --radius-xl: 26px;
       --radius-pill: 999px;
       --shadow-soft: 0 30px 80px rgba(0, 0, 0, 0.85);
+    }
+
+    html {
+      font-size: 110%; /* ~10% global bump */
     }
 
     * {
@@ -98,13 +102,13 @@
     }
 
     .logo-text-main {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .logo-text-sub {
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
@@ -117,7 +121,7 @@
     }
 
     .nav-pill {
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       padding: 4px 10px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(116, 164, 154, 0.8);
@@ -136,7 +140,7 @@
       border: 1px solid rgba(47,95,224,0.9);
       background: linear-gradient(135deg, #2f5fe0, #1f6f5b);
       color: #fdfdfd;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 16px 32px rgba(0,0,0,0.9);
@@ -145,7 +149,7 @@
     }
 
     .btn-cta .icon {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .btn-cta:active {
@@ -163,9 +167,22 @@
       border: 1px solid rgba(115, 146, 176, 0.8);
       background: rgba(6, 17, 24, 0.95);
       color: var(--text-main);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       text-decoration: none;
       white-space: nowrap;
+    }
+
+    /* Spanish site banner */
+
+    .lang-banner {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .lang-banner-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
     }
 
     /* HERO */
@@ -178,8 +195,12 @@
       align-items: center;
     }
 
+    .hero-left {
+      text-align: center;
+    }
+
     .eyebrow {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent-gold);
@@ -187,9 +208,9 @@
     }
 
     .hero-title {
-      font-size: clamp(2.0rem, 3.4vw, 2.7rem);
-      line-height: 1.12;
-      margin-bottom: 10px;
+      font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+      line-height: 1.14;
+      margin-bottom: 12px;
     }
 
     .hero-title span.highlight {
@@ -197,27 +218,23 @@
     }
 
     .hero-subtitle {
-      font-size: 0.96rem;
+      font-size: 1rem;
       color: var(--text-muted);
       max-width: 34rem;
       line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .hero-subtitle span.es {
-      color: var(--accent-gold);
-      font-weight: 500;
+      margin: 0 auto 18px;
     }
 
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 10px;
+      justify-content: center;
+      margin-bottom: 12px;
     }
 
     .hero-footnote {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
@@ -235,23 +252,25 @@
     }
 
     .hero-right-label {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 6px;
       color: rgba(245,245,255,0.9);
+      text-align: center;
     }
 
     .hero-right-title {
-      font-size: 1rem;
-      margin-bottom: 8px;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     .metric-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
       gap: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .metric {
@@ -259,33 +278,36 @@
       border-radius: 14px;
       border: 1px solid rgba(151, 187, 178, 0.85);
       background: rgba(4, 13, 16, 0.92);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      text-align: center;
     }
 
     .metric .value {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 600;
     }
 
     .metric .label {
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
     .hero-right-list {
       list-style: none;
-      font-size: 0.8rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
+      max-width: 22rem;
+      margin: 0 auto;
     }
 
     .hero-right-list li {
       display: flex;
       gap: 7px;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .hero-right-list .bullet {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--accent-gold);
       margin-top: 1px;
     }
@@ -300,7 +322,7 @@
       background: linear-gradient(125deg, #2f5fe0, #1f6f5b);
       padding: 6px 18px;
       text-align: center;
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       box-shadow: 0 12px 28px rgba(0,0,0,0.7);
@@ -310,25 +332,27 @@
 
     section {
       margin-top: 44px;
+      text-align: center;
     }
 
     .section-label {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent-gold);
-      margin-bottom: 4px;
-    }
-
-    .section-title {
-      font-size: 1.3rem;
       margin-bottom: 6px;
     }
 
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
     .section-intro {
-      font-size: 0.9rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 40rem;
+      margin: 0 auto;
     }
 
     /* PROBLEM SECTION */
@@ -337,7 +361,8 @@
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
       gap: 20px;
-      margin-top: 18px;
+      margin-top: 20px;
+      text-align: left;
     }
 
     .problem-card {
@@ -346,7 +371,7 @@
       border: 1px solid var(--border-subtle);
       background: rgba(5, 12, 19, 0.96);
       box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -354,11 +379,13 @@
     .problem-bad {
       color: var(--accent-red);
       font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
     }
 
     .problem-list {
       list-style: none;
-      margin-top: 10px;
+      margin-top: 4px;
     }
 
     .problem-list li {
@@ -369,7 +396,7 @@
 
     .problem-list .icon {
       margin-top: 2px;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--accent-red);
     }
 
@@ -378,7 +405,7 @@
       padding: 10px 11px;
       border-radius: 14px;
       border: 1px dashed rgba(158, 126, 90, 0.9);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       background: rgba(9, 10, 14, 0.95);
     }
@@ -389,11 +416,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 14px;
+      justify-content: center;
     }
 
     .pill {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       padding: 4px 10px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(120, 154, 187, 0.9);
@@ -405,7 +433,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 16px;
-      margin-top: 18px;
+      margin-top: 20px;
+      text-align: left;
     }
 
     .card {
@@ -427,16 +456,16 @@
     }
 
     .card-icon {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .card-title {
-      font-size: 0.96rem;
+      font-size: 1rem;
       font-weight: 600;
     }
 
     .card-tag {
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       padding: 3px 8px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(145, 179, 211, 0.85);
@@ -447,7 +476,7 @@
     }
 
     .card-body {
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -455,7 +484,7 @@
     .feature-list {
       list-style: none;
       margin-top: 8px;
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
     }
 
@@ -466,7 +495,7 @@
     }
 
     .feature-list .icon {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--accent-green-soft);
       margin-top: 2px;
     }
@@ -477,7 +506,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 14px;
-      margin-top: 16px;
+      margin-top: 18px;
+      text-align: left;
     }
 
     .step {
@@ -485,13 +515,13 @@
       border: 1px solid var(--border-subtle);
       padding: 12px 12px 13px;
       background: rgba(7, 16, 24, 0.96);
-      font-size: 0.84rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
 
     .step-label {
-      font-size: 0.74rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--accent-blue-soft);
@@ -499,7 +529,7 @@
     }
 
     .step-title {
-      font-size: 0.96rem;
+      font-size: 1rem;
       margin-bottom: 4px;
       color: var(--text-main);
     }
@@ -510,12 +540,13 @@
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
       gap: 20px;
-      margin-top: 18px;
+      margin-top: 20px;
+      text-align: left;
     }
 
     .faq-list {
       list-style: none;
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
     }
 
@@ -524,12 +555,12 @@
       border: 1px solid var(--border-subtle);
       padding: 9px 11px;
       background: rgba(5, 13, 20, 0.96);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .faq-q {
       font-weight: 600;
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       margin-bottom: 4px;
     }
 
@@ -554,7 +585,8 @@
       gap: 14px;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.9rem;
+      font-size: 0.96rem;
+      text-align: left;
     }
 
     .band strong {
@@ -569,7 +601,7 @@
 
     footer {
       margin-top: 26px;
-      font-size: 0.72rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       text-align: center;
       opacity: 0.8;
@@ -582,7 +614,10 @@
         grid-template-columns: minmax(0,1fr);
       }
       .hero-right {
-        margin-top: 6px;
+        margin-top: 10px;
+      }
+      .hero-right-list {
+        max-width: 100%;
       }
     }
 
@@ -599,6 +634,13 @@
       .faq-grid {
         grid-template-columns: minmax(0,1fr);
       }
+      .band {
+        flex-direction: column;
+        text-align: center;
+      }
+      .band-actions {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 640px) {
@@ -606,7 +648,13 @@
         padding: 16px 12px 36px;
       }
       .hero-title {
-        font-size: 1.85rem;
+        font-size: 2rem;
+      }
+      .problem-grid,
+      .card-grid,
+      .steps,
+      .faq-grid {
+        text-align: left;
       }
     }
   </style>
@@ -623,7 +671,7 @@
         </div>
       </div>
       <div class="nav-right">
-        <div class="nav-pill">EN / ES • Bilingual Agents</div>
+        <div class="nav-pill">Bilingual AI Phone Agents</div>
         <a href="#contact" class="btn-cta">
           <span class="icon">📞</span>
           <span>Book a 15-minute fit call</span>
@@ -631,18 +679,29 @@
       </div>
     </header>
 
+    <!-- Spanish-site button -->
+    <div class="lang-banner">
+      <p class="lang-banner-text">
+        Prefer to read this in Spanish?
+      </p>
+      <!-- Replace #spanish-site with your real Spanish URL later -->
+      <a href="#spanish-site" class="btn-secondary">
+        Ver sitio en español (coming soon)
+      </a>
+    </div>
+
     <!-- HERO -->
     <section class="hero">
-      <div>
-        <div class="eyebrow">AI Phone Agents • Agentes Telefónicos con IA</div>
+      <div class="hero-left">
+        <div class="eyebrow">AI Phone Agents</div>
         <h1 class="hero-title">
           Stop losing money to missed calls.<br />
-          Let an <span class="highlight">AI phone agent</span> answer, book, and follow up — in English <em>and</em> Spanish.
+          Let an <span class="highlight">AI phone agent</span> answer, book, and follow up for you.
         </h1>
         <p class="hero-subtitle">
-          Familia AI Phone Agents act like a bilingual receptionist + scheduler that never sleeps.
-          Your customers get a real conversation, you get booked jobs and clean notes — and you’re not chained to your phone.
-          <span class="es">Todo funciona en inglés y en español.</span>
+          Familia AI Phone Agents act like a receptionist and scheduler that never sleeps.
+          Your customers get a real conversation, you get booked jobs and clean notes, and
+          you’re no longer chained to your phone all day.
         </p>
 
         <div class="hero-ctas">
@@ -656,7 +715,7 @@
         </div>
 
         <div class="hero-footnote">
-          Built for Hispanic & bilingual owner-operators in cleaning, trades, and home / facility services
+          Designed for owner-operators in cleaning, trades, and home / facility services
           who are tired of being the only “receptionist” in the business.
         </div>
       </div>
@@ -676,14 +735,14 @@
           </div>
           <div class="metric">
             <div class="value">100%</div>
-            <div class="label">Bilingual by design (EN / ES)</div>
+            <div class="label">Scripted to your business</div>
           </div>
         </div>
 
         <ul class="hero-right-list">
           <li>
             <span class="bullet">•</span>
-            <span>Answers calls, screens, and routes them based on your rules.</span>
+            <span>Answers calls, screens them, and routes based on rules you decide.</span>
           </li>
           <li>
             <span class="bullet">•</span>
@@ -691,27 +750,28 @@
           </li>
           <li>
             <span class="bullet">•</span>
-            <span>Handles “I have a quick question” calls with consistent answers.</span>
+            <span>Handles “quick questions” with consistent, approved answers.</span>
           </li>
           <li>
             <span class="bullet">•</span>
-            <span>Follows up with quotes and past customers so money doesn’t slip away.</span>
+            <span>Follows up on quotes and past customers so money doesn’t slip away.</span>
           </li>
         </ul>
 
         <div class="hero-ribbon">
-          FOR REAL OWNERS • PARA LA FAMILIA
+          BUILT FOR REAL OWNERS
         </div>
       </aside>
     </section>
 
     <!-- PROBLEM -->
     <section id="problem">
-      <div class="section-label">The reality • La realidad</div>
-      <h2 class="section-title">Right now, your phone situation is quietly costing you.</h2>
+      <div class="section-label">The reality</div>
+      <h2 class="section-title">Your current phone situation is quietly costing you.</h2>
       <p class="section-intro">
-        Most service-business owners don’t have a full-time receptionist. That means:
-        missed calls, rushed conversations, and a constant feeling of “I’m dropping something.”
+        Most service-business owners don’t have a full-time receptionist.
+        That means missed calls, rushed conversations, and a constant feeling that
+        something important is slipping through the cracks.
       </p>
 
       <div class="problem-grid">
@@ -724,20 +784,20 @@
             </li>
             <li>
               <span class="icon">⚠️</span>
-              <span>New customers hang up and call the next company on Google when no one answers.</span>
+              <span>New customers hang up and call the next company when nobody answers.</span>
             </li>
             <li>
               <span class="icon">⚠️</span>
-              <span>Existing clients can’t get fast answers, so trust and loyalty start to slip.</span>
+              <span>Existing clients can’t get quick answers, so trust and loyalty start to slip.</span>
             </li>
             <li>
               <span class="icon">⚠️</span>
-              <span>Your brain is always “on call,” even when you promised to unplug.</span>
+              <span>Your brain is always “on call,” even when you’re supposed to be off.</span>
             </li>
           </ul>
           <div class="quote-box">
-            “If I don’t pick up, I might lose a job. If I <em>do</em> pick up,
-            I’m distracted, rushed, and my family gets the leftovers.”
+            “If I don’t pick up, I might lose a job. If I do pick up, I’m distracted,
+            rushed, and my family gets whatever energy is left over.”
           </div>
         </div>
 
@@ -746,7 +806,7 @@
           <ul class="problem-list">
             <li>
               <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>Every call is answered with a calm, bilingual agent that follows your script — not their mood.</span>
+              <span>Every call is answered with a calm, consistent agent that follows your script — not their mood.</span>
             </li>
             <li>
               <span class="icon" style="color: var(--accent-green-soft);">✅</span>
@@ -758,7 +818,7 @@
             </li>
             <li>
               <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>Your phone stops being the bottleneck — and your evenings actually feel like evenings again.</span>
+              <span>Your phone stops being the bottleneck — and your evenings start to feel like evenings again.</span>
             </li>
           </ul>
         </div>
@@ -767,22 +827,21 @@
 
     <!-- FEATURES -->
     <section id="features">
-      <div class="section-label">What it is • ¿Qué es?</div>
+      <div class="section-label">What it is</div>
       <h2 class="section-title">Your AI receptionist, scheduler, and follow-up specialist — tuned to your business.</h2>
       <p class="section-intro">
-        A Familia AI Phone Agent is a custom-built, bilingual call system that
-        answers the phone, follows clear rules, and integrates with your existing
-        tools — without needing a full-time hire.
+        A Familia AI Phone Agent is a custom-built call system that answers the phone,
+        follows clear rules, and integrates with your existing tools — without needing a full-time hire.
       </p>
 
       <div class="pill-row">
-        <span class="pill">Bilingual EN / ES by default</span>
         <span class="pill">Fully scripted to your business</span>
-        <span class="pill">Works with your calendar & CRM</span>
-        <span class="pill">Owner can update answers anytime</span>
+        <span class="pill">Consistent tone and answers</span>
+        <span class="pill">Works with your calendar & tools</span>
+        <span class="pill">Owner can update it anytime</span>
       </div>
 
-      <div class="card-grid" style="margin-top: 20px;">
+      <div class="card-grid">
         <article class="card">
           <div class="card-header">
             <div class="card-icon">📞</div>
@@ -792,12 +851,13 @@
             </div>
           </div>
           <div class="card-body">
-            Every call is greeted the same way: friendly, clear, bilingual. The agent collects the right info, routes emergencies, and
-            reassures customers that you’ve got them.
+            Every call is greeted the same way: friendly, clear, and on-brand.
+            The agent collects the right info, routes urgent situations, and reassures
+            customers that they’re being taken care of.
           </div>
           <ul class="feature-list">
-            <li><span class="icon">✚</span><span>Greeting that matches your brand and culture.</span></li>
-            <li><span class="icon">✚</span><span>Answers common questions (service area, times, basic pricing ranges).</span></li>
+            <li><span class="icon">✚</span><span>Greeting that matches your brand and personality.</span></li>
+            <li><span class="icon">✚</span><span>Answers common questions (service area, availability, basic pricing ranges).</span></li>
             <li><span class="icon">✚</span><span>Flags important calls for you or your team to return personally.</span></li>
           </ul>
         </article>
@@ -811,12 +871,13 @@
             </div>
           </div>
           <div class="card-body">
-            Instead of a sticky-note list of “people to call back,” the agent books real appointments into your calendar and clearly marks what each one is for.
+            Instead of a messy “people to call back” list, the agent books actual appointments
+            into your calendar and clearly marks what each one is for.
           </div>
           <ul class="feature-list">
-            <li><span class="icon">✚</span><span>Connects to an online calendar or intake form you already use.</span></li>
-            <li><span class="icon">✚</span><span>Blocks out buffers so you’re not double-booked or rushed.</span></li>
-            <li><span class="icon">✚</span><span>Sends SMS or email confirmations (depending on your setup).</span></li>
+            <li><span class="icon">✚</span><span>Connects to an online calendar or intake system you already use.</span></li>
+            <li><span class="icon">✚</span><span>Blocks out buffers so you’re not double-booked and rushing.</span></li>
+            <li><span class="icon">✚</span><span>Sends confirmations (via SMS or email, depending on your setup).</span></li>
           </ul>
         </article>
 
@@ -829,10 +890,11 @@
             </div>
           </div>
           <div class="card-body">
-            Your agent can be trained to follow up with quotes, check in on past customers, or remind people about upcoming appointments.
+            Your agent can be trained to follow up on quotes, check in on past customers,
+            and remind people about upcoming appointments.
           </div>
           <ul class="feature-list">
-            <li><span class="icon">✚</span><span>“Just checking in about your quote” calls that you never had time to make.</span></li>
+            <li><span class="icon">✚</span><span>“Just checking in about your quote” calls you never had time to make.</span></li>
             <li><span class="icon">✚</span><span>Appointment reminders that reduce no-shows and last-minute cancellations.</span></li>
             <li><span class="icon">✚</span><span>Reactivation calls to past customers on a schedule you choose.</span></li>
           </ul>
@@ -842,11 +904,11 @@
 
     <!-- HOW IT WORKS -->
     <section id="how-it-works">
-      <div class="section-label">How it works • ¿Cómo funciona?</div>
-      <h2 class="section-title">We design your AI Phone Agent <em>with</em> you, not for you.</h2>
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">We design your AI Phone Agent with you, not for you.</h2>
       <p class="section-intro">
         This is not a random robot dropped into your business. It’s a guided build where we
-        capture how <em>you</em> want things done — then turn that into a consistent, bilingual phone experience.
+        capture how you want things done — then turn that into a consistent phone experience.
       </p>
 
       <div class="steps">
@@ -855,18 +917,18 @@
           <div class="step-title">Map your calls and decisions</div>
           <p>
             We walk through how calls work today: new leads, existing customers,
-            emergencies, Spanish-only callers, and “I just have a question” calls.
-            Together we define what “a good call” looks like for your business.
+            emergencies, and “quick questions.” Together we define what a good call
+            looks like for your business so the agent knows what to prioritize.
           </p>
         </div>
 
         <div class="step">
           <div class="step-label">Step 2</div>
-          <div class="step-title">Design the script & flows (EN / ES)</div>
+          <div class="step-title">Design the script and flows</div>
           <p>
-            We build conversational flows in English and Spanish that fit your tone —
-            professional, friendly, and culturally intelligent. You’ll see the script,
-            approve it, and tweak anything that doesn’t feel like you.
+            We build conversational flows that fit your tone — professional, friendly,
+            and direct. You’ll see the script, approve it, and adjust anything that doesn’t
+            feel like you. The agent simply follows the rules you set.
           </p>
         </div>
 
@@ -874,9 +936,9 @@
           <div class="step-label">Step 3</div>
           <div class="step-title">Deploy, test, and refine</div>
           <p>
-            We roll out the agent, monitor real calls, and make adjustments. As your
-            services or policies evolve, we update the agent so it stays sharp — like
-            training a team member who never forgets.
+            We roll out the agent, monitor real calls, and make adjustments.
+            As your services, pricing, or policies evolve, we update the agent so it
+            stays sharp — like training a team member who never forgets.
           </p>
         </div>
       </div>
@@ -884,7 +946,7 @@
 
     <!-- FAQ / OBJECTIONS -->
     <section id="faq">
-      <div class="section-label">Questions • Preguntas</div>
+      <div class="section-label">Questions</div>
       <h2 class="section-title">“Is an AI Phone Agent really right for us?”</h2>
       <p class="section-intro">
         These are the honest questions owners ask before they move forward.
@@ -895,54 +957,53 @@
           <div class="faq-item">
             <div class="faq-q">Will my customers notice it’s AI?</div>
             <div class="faq-a">
-              They’ll notice that someone answers, is patient, and speaks their language.
-              We tune the agent to sound natural and clear, and we design it to be
-              honest — not pretending to be a human, but focused on helping quickly.
+              They’ll notice that someone answers, is patient, and is focused on helping.
+              We tune the agent to sound natural and clear, and we design it to be honest —
+              focused on solving the caller’s problem quickly and professionally.
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-q">What if a call is too complex?</div>
             <div class="faq-a">
               Your agent knows its limits. When a call goes beyond the script
-              (pricing exceptions, unusual situations, important relationships),
+              (pricing exceptions, unusual situations, key relationships),
               it gathers details, flags the call, and makes sure you or your
-              manager get the information needed to respond personally.
+              manager have what you need to respond personally.
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-q">Is this trying to replace my people?</div>
             <div class="faq-a">
-              No. The goal is to <strong>increase capacity</strong>, not replace people.
+              No. The goal is to increase capacity, not replace people.
               You can keep the humans you trust on the highest-value calls and
-              let the agent handle the repetitive, time-sucking ones.
+              let the agent handle the repetitive, time-consuming ones.
             </div>
           </div>
         </div>
 
         <div class="faq-list">
           <div class="faq-item">
-            <div class="faq-q">We’re Hispanic-owned. Will it respect our culture?</div>
-            <div class="faq-a">
-              Yes. Familia Business Coaching was built with Hispanic and bilingual
-              owners in mind. We treat language, tone, and respect as non-negotiables.
-              Your agent will reflect that — from the greeting to how tough situations
-              are handled.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What tools does it connect with?</div>
+            <div class="faq-q">Does it work with the tools we already use?</div>
             <div class="faq-a">
               We adapt to the tools you already use for scheduling and communication
               where possible (calendars, forms, CRMs). During the initial call,
-              we’ll look at what you’re running today and talk about realistic options.
+              we’ll review your setup and talk about realistic options.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How much control do we have?</div>
+            <div class="faq-a">
+              A lot. You approve the script, the decision rules, and the boundaries.
+              If something changes in your business, we update the agent so it stays aligned
+              with how you want calls handled.
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-q">How do we talk about pricing?</div>
             <div class="faq-a">
-              Pricing depends on call volume, languages, and complexity. The first
-              conversation is simply about fit: whether an AI Phone Agent will
-              realistically pay for itself in your situation. If it won’t, we’ll tell you.
+              Pricing depends on call volume, complexity, and integrations.
+              The first conversation is simply about fit: whether an AI Phone Agent
+              will realistically pay for itself in your situation. If it won’t, we’ll say so.
             </div>
           </div>
         </div>
@@ -954,8 +1015,8 @@
       <div class="band">
         <div>
           <strong>Ready to stop being the only “receptionist” in your business?</strong><br />
-          Let’s look at your call flow, your customers, and your goals — and see if a bilingual
-          AI Phone Agent makes sense for your business right now.
+          Let’s look at your call flow, your customers, and your goals — and see if a Familia AI Phone Agent
+          makes sense for your business right now.
         </div>
         <div class="band-actions">
           <a href="mailto:info@example.com?subject=Familia%20AI%20Phone%20Agent%20Discovery" class="btn-cta">
@@ -963,14 +1024,14 @@
             <span>Email to request a call</span>
           </a>
           <a href="#" class="btn-secondary">
-            Prefer WhatsApp? Drop your link here.
+            Prefer WhatsApp? Add your link here.
           </a>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Familia Business Coaching — AI Phone Agents for Hispanic & bilingual service-business owners.
+      © <span id="year"></span> Familia Business Coaching — AI Phone Agents for service-business owners.
     </footer>
   </div>
 
