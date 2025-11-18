@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Familia Business Coaching — Own Your Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Familia Business Coaching helps Hispanic and bilingual service-business owners own their business instead of being owned by it." />
+  <style>
+    :root {
+      --bg: #020309;
+      --bg-soft: #061017;
+      --card: #0b1b1c;
+      --accent-green: #1f6f5b;
+      --accent-green-soft: #2c8a6f;
+      --accent-blue: #2f5fe0;
+      --accent-gold: #f5c063;
+      --text-main: #f8f9ff;
+      --text-muted: #b9c2d6;
+      --border: #234249;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 91, 0.35), transparent 55%),
+        radial-gradient(circle at top right, rgba(47, 95, 224, 0.32), transparent 60%),
+        var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    /* Nav */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(31,111,91,0.3), #05090c);
+      border: 1px solid rgba(94, 150, 140, 0.7);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background:
+        conic-gradient(from 210deg,
+          #2f5fe0 0deg,
+          #1f6f5b 120deg,
+          #f5c063 190deg,
+          #2f5fe0 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #020309;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 0 0 2px rgba(3, 8, 12, 0.8);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-text-main {
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(116, 164, 154, 0.8);
+      color: var(--text-muted);
+      background: rgba(4, 10, 13, 0.9);
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(47,95,224,0.9);
+      background: linear-gradient(135deg, #2f5fe0, #1f6f5b);
+      color: #fdfdfd;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.8);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-cta span.icon {
+      font-size: 0.9rem;
+    }
+
+    .btn-cta:active {
+      transform: translateY(1px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.85);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 28px;
+      margin-top: 26px;
+      align-items: center;
+    }
+
+    .hero-main-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3.1vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span.highlight {
+      color: var(--accent-green-soft);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .hero-subtitle span.es {
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(94, 150, 140, 0.9);
+      background: rgba(4, 13, 16, 0.95);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-right {
+      background:
+        radial-gradient(circle at top left, rgba(245,192,99,0.35), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(31,111,91,0.5), transparent 65%),
+        var(--bg-soft);
+      border-radius: 24px;
+      padding: 14px 16px 16px;
+      border: 1px solid rgba(129, 170, 160, 0.8);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250,250,255,0.86);
+      margin-bottom: 8px;
+    }
+
+    .hero-card-title {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .hero-list span.bullet {
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    .hero-ribbon {
+      position: absolute;
+      right: -70px;
+      bottom: 18px;
+      width: 190px;
+      transform: rotate(-22deg);
+      border-radius: 999px;
+      background: linear-gradient(120deg, #2f5fe0, #1f6f5b);
+      padding: 5px 16px;
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.7);
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-intro {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    /* Who we serve */
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(93, 146, 135, 0.9);
+      background: rgba(4, 14, 15, 0.95);
+      color: var(--text-main);
+    }
+
+    /* Three-column cards */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background:
+        radial-gradient(circle at top left, rgba(47,95,224,0.18), transparent 65%),
+        radial-gradient(circle at bottom right, rgba(31,111,91,0.18), transparent 60%),
+        var(--card);
+      border-radius: var(--radius-lg);
+      padding: 13px 13px 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.85);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .card-icon {
+      font-size: 1.1rem;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .card-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(131, 179, 169, 0.85);
+      margin-bottom: 6px;
+      color: var(--text-muted);
+      background: rgba(3, 10, 11, 0.95);
+    }
+
+    /* Two-column layout: About / Values */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 20px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .bio-card {
+      background: radial-gradient(circle at top left, rgba(245,192,99,0.2), transparent 60%),
+        var(--bg-soft);
+      border-radius: 20px;
+      padding: 14px 14px 15px;
+      border: 1px solid rgba(177, 152, 102, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .bio-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .bio-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .bio-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .values-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .values-list span.icon {
+      font-size: 0.85rem;
+      color: var(--accent-green-soft);
+      margin-top: 2px;
+    }
+
+    /* Final CTA */
+
+    .final-cta {
+      margin-top: 22px;
+      padding: 16px 14px 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(99, 159, 148, 0.9);
+      background:
+        radial-gradient(circle at top left, rgba(47,95,224,0.26), transparent 65%),
+        radial-gradient(circle at bottom right, rgba(31,111,91,0.4), transparent 60%),
+        rgba(3, 9, 11, 0.96);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      justify-content: space-between;
+    }
+
+    .final-cta-text {
+      font-size: 0.9rem;
+      max-width: 32rem;
+    }
+
+    .final-cta-text strong {
+      color: var(--accent-gold);
+    }
+
+    .final-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      margin-top: 26px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-right {
+        justify-content: flex-start;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 16px 12px 32px;
+      }
+      .nav {
+        padding: 10px 12px;
+      }
+      .hero-right {
+        margin-top: 6px;
+      }
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .final-cta {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo-mark">F</div>
+        <div class="logo-text">
+          <div class="logo-text-main">FAMILIA BUSINESS COACHING</div>
+          <div class="logo-text-sub">Faith-grounded • Bilingual • Service-business focus</div>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-pill">EN / ES • Bilingual Friendly</div>
+        <a href="#contact" class="btn-cta">
+          <span class="icon">📅</span>
+          <span>Request a discovery call</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="hero-main-eyebrow">Familia Business Coaching</div>
+        <h1 class="hero-title">
+          Own your business instead of it <span class="highlight">owning you</span>.
+        </h1>
+        <p class="hero-subtitle">
+          We help Hispanic and bilingual service-business owners build
+          real companies with systems, people, and direction — so the
+          business can grow without stealing your peace.
+          <span class="es">También hablamos español.</span>
+        </p>
+        <div class="hero-ctas">
+          <a href="#programs" class="btn-cta">
+            <span class="icon">🌵</span>
+            <span>See how we help</span>
+          </a>
+          <a href="#who-we-serve" class="btn-secondary">
+            <span>Estoy atascado como autoempleado</span>
+          </a>
+        </div>
+        <div class="hero-footnote">
+          For owner-operators in cleaning, trades, and home / facility services
+          who want to grow without burning out their family or their faith.
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-tagline">CLARIDAD • SISTEMAS • LEGADO</div>
+        <div class="hero-card-title">What we build together:</div>
+        <ul class="hero-list">
+          <li>
+            <span class="bullet">✚</span>
+            <span>Clear picture of the business you’re really building — not just “more jobs.”</span>
+          </li>
+          <li>
+            <span class="bullet">✚</span>
+            <span>Simple, repeatable systems so work stops living only in your head.</span>
+          </li>
+          <li>
+            <span class="bullet">✚</span>
+            <span>Owner hours that shrink over time instead of growing every year.</span>
+          </li>
+          <li>
+            <span class="bullet">✚</span>
+            <span>AI + automation that supports your people instead of replacing them.</span>
+          </li>
+        </ul>
+        <div class="hero-ribbon">PARA LA FAMILIA • FOR LEGACY</div>
+      </aside>
+    </section>
+
+    <!-- Who we serve -->
+    <section id="who-we-serve">
+      <div class="section-label">Who we serve • ¿Para quién es?</div>
+      <h2 class="section-title">Hispanic & bilingual service-business owners</h2>
+      <p class="section-intro">
+        You’re not just trying to “make more money.” You’re building stability,
+        opportunities, and a testimony for your family. We focus on service-based
+        businesses where trust, consistency, and people matter.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Commercial / residential cleaning</span>
+        <span class="pill">Trades & home services</span>
+        <span class="pill">Small crews becoming real companies</span>
+        <span class="pill">Hispanic & bilingual owners</span>
+        <span class="pill">Faith and family at the center</span>
+      </div>
+    </section>
+
+    <!-- How we help -->
+    <section id="programs">
+      <div class="section-label">How we help • Cómo te ayudamos</div>
+      <h2 class="section-title">Clarity, systems, and AI support — built for real owners</h2>
+      <p class="section-intro">
+        Every engagement is designed to move you from “everything depends on me”
+        toward “the business can run with me, not only because of me.”
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">🧭</div>
+            <div>
+              <div class="card-title">Clarity & Direction</div>
+              <div class="card-tag">Vision • Numbers • Next steps</div>
+            </div>
+          </div>
+          <div class="card-body">
+            We zoom out and define the business you’re really building:
+            who you serve, what “done” looks like, and what has to change
+            in the next 6–12 months. Clear priorities instead of a thousand
+            random tasks.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">📋</div>
+            <div>
+              <div class="card-title">Systems & People</div>
+              <div class="card-tag">Processes • Roles • Owner hours</div>
+            </div>
+          </div>
+          <div class="card-body">
+            We start where you feel the most pressure: jobs, quality,
+            communication, team coordination. We turn “this is how I do it”
+            into simple, trainable steps so your people can win with you.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div class="card-icon">🤖</div>
+            <div>
+              <div class="card-title">AI & Automation</div>
+              <div class="card-tag">Support • Capacity • Peace of mind</div>
+            </div>
+          </div>
+          <div class="card-body">
+            We introduce AI as a <em>helper</em>, not a threat — from scheduling
+            and reminders to documentation and communication. The goal:
+            reduce chaos, protect your time, and multiply what your team can handle.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- About & Values -->
+    <section>
+      <div class="section-label">About • Acerca de</div>
+      <h2 class="section-title">Built on faith, family, and freedom</h2>
+      <p class="section-intro">
+        Familia Business Coaching exists to help you grow in a way that honors
+        your values — not sacrifice them. We believe a healthy business should
+        serve your family, not replace it.
+      </p>
+
+      <div class="two-col">
+        <article class="bio-card">
+          <div class="bio-name">Joseph McElveen</div>
+          <div class="bio-role">Founder & Head Coach — Familia Business Coaching</div>
+          <div class="bio-body">
+            Joseph works with Hispanic and bilingual service-business owners to
+            move from “always on the job” to “leading a real business.” His work
+            blends practical operations, people insight, and AI tools with a clear
+            foundation of faith, family, and legacy.
+            <br /><br />
+            Sessions are straightforward, honest, and focused on real change —
+            not theory. If you’re serious about taking ownership of your role as
+            <strong>business owner</strong>, you’ll feel right at home.
+          </div>
+        </article>
+
+        <article>
+          <ul class="values-list">
+            <li>
+              <span class="icon">✚</span>
+              <span><strong>Faith first.</strong> We believe wisdom, integrity, and peace come from God, and that
+              business is one way to serve people well.</span>
+            </li>
+            <li>
+              <span class="icon">🏠</span>
+              <span><strong>Family at the center.</strong> Growth that destroys the home is not success. We design around your spouse, kids, and long-term health.</span>
+            </li>
+            <li>
+              <span class="icon">🕊️</span>
+              <span><strong>Freedom over frenzy.</strong> Systems and people are built so the owner can breathe, rest, and think — not just react.</span>
+            </li>
+            <li>
+              <span class="icon">🧱</span>
+              <span><strong>Service and excellence.</strong> Strong businesses treat customers, team members, and vendors with respect and clarity.</span>
+            </li>
+            <li>
+              <span class="icon">🌱</span>
+              <span><strong>Legacy minded.</strong> We aim beyond this month’s invoices: what story will your business tell your children about what was possible?</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contact">
+      <div class="final-cta">
+        <div class="final-cta-text">
+          <strong>Ready to stop feeling owned by your business?</strong><br />
+          The first step is a simple conversation. No pressure, no hype — just
+          clarity on where you are, where you want to go, and whether we’re a
+          good fit to help.
+        </div>
+        <div class="final-cta-actions">
+          <a href="mailto:info@example.com?subject=Familia%20Discovery%20Call" class="btn-cta">
+            <span class="icon">✉️</span>
+            <span>Email to request a call</span>
+          </a>
+          <a href="#" class="btn-secondary">
+            Prefer WhatsApp? Add your link here.
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Familia Business Coaching • “Own your business instead of it owning you.”
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
