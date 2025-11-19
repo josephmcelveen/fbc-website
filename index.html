@@ -1378,81 +1378,82 @@
     </footer>
   </div>
 
-  <script>
-    (function() {
-      const html = document.documentElement;
-      const enView = document.getElementById('lang-en');
-      const esView = document.getElementById('lang-es');
-      const toggleBtn = document.getElementById('lang-toggle');
-      const navSubtitle = document.getElementById('nav-subtitle');
-      const navPill = document.getElementById('nav-pill-text');
-      const navCtaText = document.getElementById('nav-cta-text');
+ <script>
+  (function() {
+    const html = document.documentElement;
+    const enView = document.getElementById('lang-en');
+    const esView = document.getElementById('lang-es');
+    const toggleBtn = document.getElementById('lang-toggle');
+    const navSubtitle = document.getElementById('nav-subtitle');
+    const navPill = document.getElementById('nav-pill-text');
+    const navCtaText = document.getElementById('nav-cta-text');
 
-      function applyLanguage(lang) {
-        if (lang === 'es') {
-          enView.classList.remove('active');
-          esView.classList.add('active');
-          html.lang = 'es';
-          toggleBtn.textContent = 'English';
-          navSubtitle.textContent = 'Agentes Telefónicos con IA para negocios de servicios';
-          navPill.textContent = 'Agentes telefónicos con IA';
-          navCtaText.textContent = 'Agenda una llamada de 15 minutos';
-        } else {
-          enView.classList.add('active');
-          esView.classList.remove('active');
-          html.lang = 'en';
-          toggleBtn.textContent = 'Español';
-          navSubtitle.textContent = 'AI Phone Agents for Service Businesses';
-          navPill.textContent = 'Bilingual AI Phone Agents';
-          navCtaText.textContent = 'Book a 15-minute fit call';
-        }
-        localStorage.setItem('siteLang', lang);
+    function applyLanguage(lang) {
+      if (lang === 'es') {
+        enView.classList.remove('active');
+        esView.classList.add('active');
+        html.lang = 'es';
+        toggleBtn.textContent = 'English';
+        navSubtitle.textContent = 'Agentes Telefónicos con IA para negocios de servicios';
+        navPill.textContent = 'Agentes telefónicos con IA';
+        navCtaText.textContent = 'Agenda una llamada de 15 minutos';
+      } else {
+        enView.classList.add('active');
+        esView.classList.remove('active');
+        html.lang = 'en';
+        toggleBtn.textContent = 'Español';
+        navSubtitle.textContent = 'AI Phone Agents for Service Businesses';
+        navPill.textContent = 'Bilingual AI Phone Agents';
+        navCtaText.textContent = 'Book a 15-minute fit call';
       }
+      localStorage.setItem('siteLang', lang);
+    }
 
-      // Auto-detect or use stored preference
-      let lang = localStorage.getItem('siteLang');
-      if (!lang) {
-        const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-        lang = browserLang.startsWith('es') ? 'es' : 'en';
-      }
-      applyLanguage(lang);
+    // Auto-detect or use stored preference
+    let lang = localStorage.getItem('siteLang');
+    if (!lang) {
+      const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      lang = browserLang.startsWith('es') ? 'es' : 'en';
+    }
+    applyLanguage(lang);
 
-      // Toggle handler
-      toggleBtn.addEventListener('click', () => {
-        const current = html.lang === 'es' ? 'es' : 'en';
-        const next = current === 'en' ? 'es' : 'en';
-        applyLanguage(next);
-      });
+    // Toggle handler
+    toggleBtn.addEventListener('click', () => {
+      const current = html.lang === 'es' ? 'es' : 'en';
+      const next = current === 'en' ? 'es' : 'en';
+      applyLanguage(next);
+    });
 
-      // Smooth scroll handler for CTAs
-      function handleScrollClick(e) {
-        const targetKey = this.getAttribute('data-scroll');
-        if (!targetKey) return;
-        e.preventDefault();
-        const currentLang = html.lang === 'es' ? 'es' : 'en';
-        const sectionId = targetKey === 'features'
+    // Smooth scroll handler for CTAs
+    function handleScrollClick(e) {
+      const targetKey = this.getAttribute('data-scroll');
+      if (!targetKey) return;
+      e.preventDefault();
+      const currentLang = html.lang === 'es' ? 'es' : 'en';
+      const sectionId =
+        targetKey === 'features'
           ? `features-${currentLang}`
-          : targetKey === 'how-it-works`
+          : targetKey === 'how-it-works'
           ? `how-it-works-${currentLang}`
           : targetKey === 'contact'
           ? `contact-${currentLang}`
           : null;
 
-        if (sectionId) {
-          const section = document.getElementById(sectionId);
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+      if (sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
+    }
 
-      document.querySelectorAll('[data-scroll]').forEach(el => {
-        el.addEventListener('click', handleScrollClick);
-      });
+    document.querySelectorAll('[data-scroll]').forEach(el => {
+      el.addEventListener('click', handleScrollClick);
+    });
 
-      // Footer year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
 </body>
 </html>
