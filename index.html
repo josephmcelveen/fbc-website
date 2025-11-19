@@ -26,7 +26,7 @@
     }
 
     html {
-      font-size: 110%; /* ~10% global bump */
+      font-size: 110%; /* ~10% bump */
     }
 
     * {
@@ -157,7 +157,8 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.85);
     }
 
-    .btn-secondary {
+    .btn-secondary,
+    .btn-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -170,19 +171,12 @@
       font-size: 0.82rem;
       text-decoration: none;
       white-space: nowrap;
+      cursor: pointer;
     }
 
-    /* Spanish site banner */
-
-    .lang-banner {
-      margin-top: 16px;
-      text-align: center;
-    }
-
-    .lang-banner-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+    .btn-toggle {
+      min-width: 92px;
+      justify-content: center;
     }
 
     /* HERO */
@@ -313,11 +307,7 @@
     }
 
     .hero-ribbon {
-      position: absolute;
-      right: -68px;
-      bottom: 18px;
-      width: 210px;
-      transform: rotate(-19deg);
+      margin-top: 12px;
       border-radius: 999px;
       background: linear-gradient(125deg, #2f5fe0, #1f6f5b);
       padding: 6px 18px;
@@ -607,6 +597,15 @@
       opacity: 0.8;
     }
 
+    /* LANGUAGE VISIBILITY */
+
+    .lang-view {
+      display: none;
+    }
+    .lang-view.active {
+      display: block;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 840px) {
@@ -661,382 +660,799 @@
 </head>
 <body>
   <div class="page">
-    <!-- NAV -->
+    <!-- NAV (shared) -->
     <header class="nav">
       <div class="nav-left">
         <div class="logo-mark">F</div>
         <div class="logo-text">
           <div class="logo-text-main">FAMILIA BUSINESS COACHING</div>
-          <div class="logo-text-sub">AI Phone Agents for Service Businesses</div>
+          <div class="logo-text-sub" id="nav-subtitle">
+            AI Phone Agents for Service Businesses
+          </div>
         </div>
       </div>
       <div class="nav-right">
-        <div class="nav-pill">Bilingual AI Phone Agents</div>
-        <a href="#contact" class="btn-cta">
+        <div class="nav-pill" id="nav-pill-text">
+          Bilingual AI Phone Agents
+        </div>
+        <button id="lang-toggle" class="btn-toggle" type="button">
+          Español
+        </button>
+        <a href="mailto:info@example.com?subject=Familia%20AI%20Phone%20Agent%20Discovery" id="nav-cta" class="btn-cta">
           <span class="icon">📞</span>
-          <span>Book a 15-minute fit call</span>
+          <span id="nav-cta-text">Book a 15-minute fit call</span>
         </a>
       </div>
     </header>
 
-    <!-- Spanish-site button -->
-    <div class="lang-banner">
-      <p class="lang-banner-text">
-        Prefer to read this in Spanish?
-      </p>
-      <!-- github.com/josephmcelveen/fbc-website-esp/ -->
-      <a href="https://josephmcelveen.github.io/fbc-website-esp/" class="btn-secondary">
-        Ver sitio en español
-      </a>
-    </div>
+    <!-- ENGLISH CONTENT -->
+    <main class="lang-view" id="lang-en">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow">AI Phone Agents</div>
+          <h1 class="hero-title">
+            Stop losing money to missed calls.<br />
+            Let an <span class="highlight">AI phone agent</span> answer, book, and follow up for you.
+          </h1>
+          <p class="hero-subtitle">
+            Familia AI Phone Agents act like a receptionist and scheduler that never sleeps.
+            Your customers get a real conversation, you get booked jobs and clean notes, and
+            you’re no longer chained to your phone all day.
+          </p>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-left">
-        <div class="eyebrow">AI Phone Agents</div>
-        <h1 class="hero-title">
-          Stop losing money to missed calls.<br />
-          Let an <span class="highlight">AI phone agent</span> answer, book, and follow up for you.
-        </h1>
-        <p class="hero-subtitle">
-          Familia AI Phone Agents act like a receptionist and scheduler that never sleeps.
-          Your customers get a real conversation, you get booked jobs and clean notes, and
-          you’re no longer chained to your phone all day.
+          <div class="hero-ctas">
+            <a href="#" class="btn-cta" data-scroll="how-it-works">
+              <span class="icon">▶️</span>
+              <span>See how it works</span>
+            </a>
+            <a href="#" class="btn-secondary" data-scroll="features">
+              <span>What exactly can it do?</span>
+            </a>
+          </div>
+
+          <div class="hero-footnote">
+            Designed for owner-operators in cleaning, trades, and home / facility services
+            who are tired of being the only “receptionist” in the business.
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="hero-right-label">FROM CHAOS TO CONSISTENCY</div>
+          <div class="hero-right-title">Before vs. After an AI Phone Agent</div>
+
+          <div class="metric-row">
+            <div class="metric">
+              <div class="value">24/7</div>
+              <div class="label">Reception & scheduling coverage</div>
+            </div>
+            <div class="metric">
+              <div class="value">0</div>
+              <div class="label">Calls depending on “if the owner is free”</div>
+            </div>
+            <div class="metric">
+              <div class="value">100%</div>
+              <div class="label">Scripted to your business</div>
+            </div>
+          </div>
+
+          <ul class="hero-right-list">
+            <li>
+              <span class="bullet">•</span>
+              <span>Answers calls, screens them, and routes based on rules you decide.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Books appointments into your calendar and sends confirmations.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Handles “quick questions” with consistent, approved answers.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Follows up on quotes and past customers so money doesn’t slip away.</span>
+            </li>
+          </ul>
+
+          <div class="hero-ribbon">
+            BUILT FOR REAL OWNERS
+          </div>
+        </aside>
+      </section>
+
+      <!-- PROBLEM -->
+      <section id="problem-en">
+        <div class="section-label">The reality</div>
+        <h2 class="section-title">Your current phone situation is quietly costing you.</h2>
+        <p class="section-intro">
+          Most service-business owners don’t have a full-time receptionist.
+          That means missed calls, rushed conversations, and a constant feeling that
+          something important is slipping through the cracks.
         </p>
 
-        <div class="hero-ctas">
-          <a href="#how-it-works" class="btn-cta">
-            <span class="icon">▶️</span>
-            <span>See how it works</span>
-          </a>
-          <a href="#features" class="btn-secondary">
-            <span>What exactly can it do?</span>
-          </a>
-        </div>
-
-        <div class="hero-footnote">
-          Designed for owner-operators in cleaning, trades, and home / facility services
-          who are tired of being the only “receptionist” in the business.
-        </div>
-      </div>
-
-      <aside class="hero-right">
-        <div class="hero-right-label">FROM CHAOS TO CONSISTENCY</div>
-        <div class="hero-right-title">Before vs. After an AI Phone Agent</div>
-
-        <div class="metric-row">
-          <div class="metric">
-            <div class="value">24/7</div>
-            <div class="label">Reception & scheduling coverage</div>
-          </div>
-          <div class="metric">
-            <div class="value">0</div>
-            <div class="label">Calls depending on “if the owner is free”</div>
-          </div>
-          <div class="metric">
-            <div class="value">100%</div>
-            <div class="label">Scripted to your business</div>
-          </div>
-        </div>
-
-        <ul class="hero-right-list">
-          <li>
-            <span class="bullet">•</span>
-            <span>Answers calls, screens them, and routes based on rules you decide.</span>
-          </li>
-          <li>
-            <span class="bullet">•</span>
-            <span>Books appointments into your calendar and sends confirmations.</span>
-          </li>
-          <li>
-            <span class="bullet">•</span>
-            <span>Handles “quick questions” with consistent, approved answers.</span>
-          </li>
-          <li>
-            <span class="bullet">•</span>
-            <span>Follows up on quotes and past customers so money doesn’t slip away.</span>
-          </li>
-        </ul>
-
-        <div class="hero-ribbon">
-          BUILT FOR REAL OWNERS
-        </div>
-      </aside>
-    </section>
-
-    <!-- PROBLEM -->
-    <section id="problem">
-      <div class="section-label">The reality</div>
-      <h2 class="section-title">Your current phone situation is quietly costing you.</h2>
-      <p class="section-intro">
-        Most service-business owners don’t have a full-time receptionist.
-        That means missed calls, rushed conversations, and a constant feeling that
-        something important is slipping through the cracks.
-      </p>
-
-      <div class="problem-grid">
-        <div class="problem-card">
-          <span class="problem-bad">Without an AI Phone Agent:</span>
-          <ul class="problem-list">
-            <li>
-              <span class="icon">⚠️</span>
-              <span>Calls come in while you’re driving, at a job, or with your family — and you’re forced to choose.</span>
-            </li>
-            <li>
-              <span class="icon">⚠️</span>
-              <span>New customers hang up and call the next company when nobody answers.</span>
-            </li>
-            <li>
-              <span class="icon">⚠️</span>
-              <span>Existing clients can’t get quick answers, so trust and loyalty start to slip.</span>
-            </li>
-            <li>
-              <span class="icon">⚠️</span>
-              <span>Your brain is always “on call,” even when you’re supposed to be off.</span>
-            </li>
-          </ul>
-          <div class="quote-box">
-            “If I don’t pick up, I might lose a job. If I do pick up, I’m distracted,
-            rushed, and my family gets whatever energy is left over.”
-          </div>
-        </div>
-
-        <div class="problem-card">
-          <span class="problem-bad">With a Familia AI Phone Agent:</span>
-          <ul class="problem-list">
-            <li>
-              <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>Every call is answered with a calm, consistent agent that follows your script — not their mood.</span>
-            </li>
-            <li>
-              <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>Leads get qualified, booked, and documented while you stay focused on high-value work.</span>
-            </li>
-            <li>
-              <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>You see a simple log of who called, what they wanted, and what was booked.</span>
-            </li>
-            <li>
-              <span class="icon" style="color: var(--accent-green-soft);">✅</span>
-              <span>Your phone stops being the bottleneck — and your evenings start to feel like evenings again.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features">
-      <div class="section-label">What it is</div>
-      <h2 class="section-title">Your AI receptionist, scheduler, and follow-up specialist — tuned to your business.</h2>
-      <p class="section-intro">
-        A Familia AI Phone Agent is a custom-built call system that answers the phone,
-        follows clear rules, and integrates with your existing tools — without needing a full-time hire.
-      </p>
-
-      <div class="pill-row">
-        <span class="pill">Fully scripted to your business</span>
-        <span class="pill">Consistent tone and answers</span>
-        <span class="pill">Works with your calendar & tools</span>
-        <span class="pill">Owner can update it anytime</span>
-      </div>
-
-      <div class="card-grid">
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📞</div>
-            <div>
-              <div class="card-title">Inbound Receptionist</div>
-              <div class="card-tag">Answering • Screening • Routing</div>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <span class="problem-bad">Without an AI Phone Agent:</span>
+            <ul class="problem-list">
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Calls come in while you’re driving, at a job, or with your family — and you’re forced to choose.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>New customers hang up and call the next company when nobody answers.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Existing clients can’t get quick answers, so trust and loyalty start to slip.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Your brain is always “on call,” even when you’re supposed to be off.</span>
+              </li>
+            </ul>
+            <div class="quote-box">
+              “If I don’t pick up, I might lose a job. If I do pick up, I’m distracted,
+              rushed, and my family gets whatever energy is left over.”
             </div>
           </div>
-          <div class="card-body">
-            Every call is greeted the same way: friendly, clear, and on-brand.
-            The agent collects the right info, routes urgent situations, and reassures
-            customers that they’re being taken care of.
-          </div>
-          <ul class="feature-list">
-            <li><span class="icon">✚</span><span>Greeting that matches your brand and personality.</span></li>
-            <li><span class="icon">✚</span><span>Answers common questions (service area, availability, basic pricing ranges).</span></li>
-            <li><span class="icon">✚</span><span>Flags important calls for you or your team to return personally.</span></li>
-          </ul>
-        </article>
 
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">📅</div>
-            <div>
-              <div class="card-title">Scheduler & Booking Agent</div>
-              <div class="card-tag">Appointments • Estimates • Walkthroughs</div>
+          <div class="problem-card">
+            <span class="problem-bad">With a Familia AI Phone Agent:</span>
+            <ul class="problem-list">
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Every call is answered with a calm, consistent agent that follows your script — not their mood.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Leads get qualified, booked, and documented while you stay focused on high-value work.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>You see a simple log of who called, what they wanted, and what was booked.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Your phone stops being the bottleneck — and your evenings start to feel like evenings again.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features-en">
+        <div class="section-label">What it is</div>
+        <h2 class="section-title">Your AI receptionist, scheduler, and follow-up specialist — tuned to your business.</h2>
+        <p class="section-intro">
+          A Familia AI Phone Agent is a custom-built call system that answers the phone,
+          follows clear rules, and integrates with your existing tools — without needing a full-time hire.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Fully scripted to your business</span>
+          <span class="pill">Consistent tone and answers</span>
+          <span class="pill">Works with your calendar & tools</span>
+          <span class="pill">Owner can update it anytime</span>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📞</div>
+              <div>
+                <div class="card-title">Inbound Receptionist</div>
+                <div class="card-tag">Answering • Screening • Routing</div>
+              </div>
+            </div>
+            <div class="card-body">
+              Every call is greeted the same way: friendly, clear, and on-brand.
+              The agent collects the right info, routes urgent situations, and reassures
+              customers that they’re being taken care of.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>Greeting that matches your brand and personality.</span></li>
+              <li><span class="icon">✚</span><span>Answers common questions (service area, availability, basic pricing ranges).</span></li>
+              <li><span class="icon">✚</span><span>Flags important calls for you or your team to return personally.</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📅</div>
+              <div>
+                <div class="card-title">Scheduler & Booking Agent</div>
+                <div class="card-tag">Appointments • Estimates • Walkthroughs</div>
+              </div>
+            </div>
+            <div class="card-body">
+              Instead of a messy “people to call back” list, the agent books actual appointments
+              into your calendar and clearly marks what each one is for.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>Connects to an online calendar or intake system you already use.</span></li>
+              <li><span class="icon">✚</span><span>Blocks out buffers so you’re not double-booked and rushing.</span></li>
+              <li><span class="icon">✚</span><span>Sends confirmations (via SMS or email, depending on your setup).</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🔁</div>
+              <div>
+                <div class="card-title">Follow-Up & Nurture</div>
+                <div class="card-tag">Quotes • Reminders • Reactivations</div>
+              </div>
+            </div>
+            <div class="card-body">
+              Your agent can be trained to follow up on quotes, check in on past customers,
+              and remind people about upcoming appointments.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>“Just checking in about your quote” calls you never had time to make.</span></li>
+              <li><span class="icon">✚</span><span>Appointment reminders that reduce no-shows and last-minute cancellations.</span></li>
+              <li><span class="icon">✚</span><span>Reactivation calls to past customers on a schedule you choose.</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works-en">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">We design your AI Phone Agent with you, not for you.</h2>
+        <p class="section-intro">
+          This is not a random robot dropped into your business. It’s a guided build where we
+          capture how you want things done — then turn that into a consistent phone experience.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-label">Step 1</div>
+            <div class="step-title">Map your calls and decisions</div>
+            <p>
+              We walk through how calls work today: new leads, existing customers,
+              emergencies, and “quick questions.” Together we define what a good call
+              looks like for your business so the agent knows what to prioritize.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-label">Step 2</div>
+            <div class="step-title">Design the script and flows</div>
+            <p>
+              We build conversational flows that fit your tone — professional, friendly,
+              and direct. You’ll see the script, approve it, and adjust anything that doesn’t
+              feel like you. The agent simply follows the rules you set.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-label">Step 3</div>
+            <div class="step-title">Deploy, test, and refine</div>
+            <p>
+              We roll out the agent, monitor real calls, and make adjustments.
+              As your services, pricing, or policies evolve, we update the agent so it
+              stays sharp — like training a team member who never forgets.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq-en">
+        <div class="section-label">Questions</div>
+        <h2 class="section-title">“Is an AI Phone Agent really right for us?”</h2>
+        <p class="section-intro">
+          These are the honest questions owners ask before they move forward.
+        </p>
+
+        <div class="faq-grid">
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">Will my customers notice it’s AI?</div>
+              <div class="faq-a">
+                They’ll notice that someone answers, is patient, and is focused on helping.
+                We tune the agent to sound natural and clear, and we design it to be honest —
+                focused on solving the caller’s problem quickly and professionally.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">What if a call is too complex?</div>
+              <div class="faq-a">
+                Your agent knows its limits. When a call goes beyond the script
+                (pricing exceptions, unusual situations, key relationships),
+                it gathers details, flags the call, and makes sure you or your
+                manager have what you need to respond personally.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">Is this trying to replace my people?</div>
+              <div class="faq-a">
+                No. The goal is to increase capacity, not replace people.
+                You can keep the humans you trust on the highest-value calls and
+                let the agent handle the repetitive, time-consuming ones.
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            Instead of a messy “people to call back” list, the agent books actual appointments
-            into your calendar and clearly marks what each one is for.
-          </div>
-          <ul class="feature-list">
-            <li><span class="icon">✚</span><span>Connects to an online calendar or intake system you already use.</span></li>
-            <li><span class="icon">✚</span><span>Blocks out buffers so you’re not double-booked and rushing.</span></li>
-            <li><span class="icon">✚</span><span>Sends confirmations (via SMS or email, depending on your setup).</span></li>
-          </ul>
-        </article>
 
-        <article class="card">
-          <div class="card-header">
-            <div class="card-icon">🔁</div>
-            <div>
-              <div class="card-title">Follow-Up & Nurture</div>
-              <div class="card-tag">Quotes • Reminders • Reactivations</div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">Does it work with the tools we already use?</div>
+              <div class="faq-a">
+                We adapt to the tools you already use for scheduling and communication
+                where possible (calendars, forms, CRMs). During the initial call,
+                we’ll review your setup and talk about realistic options.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">How much control do we have?</div>
+              <div class="faq-a">
+                A lot. You approve the script, the decision rules, and the boundaries.
+                If something changes in your business, we update the agent so it stays aligned
+                with how you want calls handled.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">How do we talk about pricing?</div>
+              <div class="faq-a">
+                Pricing depends on call volume, complexity, and integrations.
+                The first conversation is simply about fit: whether an AI Phone Agent
+                will realistically pay for itself in your situation. If it won’t, we’ll say so.
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            Your agent can be trained to follow up on quotes, check in on past customers,
-            and remind people about upcoming appointments.
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section id="contact-en">
+        <div class="band">
+          <div>
+            <strong>Ready to stop being the only “receptionist” in your business?</strong><br />
+            Let’s look at your call flow, your customers, and your goals — and see if a Familia AI Phone Agent
+            makes sense for your business right now.
           </div>
-          <ul class="feature-list">
-            <li><span class="icon">✚</span><span>“Just checking in about your quote” calls you never had time to make.</span></li>
-            <li><span class="icon">✚</span><span>Appointment reminders that reduce no-shows and last-minute cancellations.</span></li>
-            <li><span class="icon">✚</span><span>Reactivation calls to past customers on a schedule you choose.</span></li>
-          </ul>
-        </article>
-      </div>
-    </section>
+          <div class="band-actions">
+            <a href="mailto:info@example.com?subject=Familia%20AI%20Phone%20Agent%20Discovery" class="btn-cta">
+              <span class="icon">✉️</span>
+              <span>Email to request a call</span>
+            </a>
+            <a href="#" class="btn-secondary">
+              Prefer WhatsApp? Add your link here.
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works">
-      <div class="section-label">How it works</div>
-      <h2 class="section-title">We design your AI Phone Agent with you, not for you.</h2>
-      <p class="section-intro">
-        This is not a random robot dropped into your business. It’s a guided build where we
-        capture how you want things done — then turn that into a consistent phone experience.
-      </p>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-label">Step 1</div>
-          <div class="step-title">Map your calls and decisions</div>
-          <p>
-            We walk through how calls work today: new leads, existing customers,
-            emergencies, and “quick questions.” Together we define what a good call
-            looks like for your business so the agent knows what to prioritize.
+    <!-- SPANISH CONTENT -->
+    <main class="lang-view" id="lang-es">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow">Agentes Telefónicos con IA</div>
+          <h1 class="hero-title">
+            Deja de perder dinero por llamadas perdidas.<br />
+            Deja que un <span class="highlight">agente telefónico con IA</span> conteste, agende y dé seguimiento por ti.
+          </h1>
+          <p class="hero-subtitle">
+            Los Agentes Telefónicos con IA de Familia funcionan como una recepcionista y una persona de agenda que nunca duerme.
+            Tus clientes reciben una conversación real, tú recibes trabajos agendados y notas claras, y dejas de estar
+            pegado al teléfono todo el día.
           </p>
-        </div>
 
-        <div class="step">
-          <div class="step-label">Step 2</div>
-          <div class="step-title">Design the script and flows</div>
-          <p>
-            We build conversational flows that fit your tone — professional, friendly,
-            and direct. You’ll see the script, approve it, and adjust anything that doesn’t
-            feel like you. The agent simply follows the rules you set.
-          </p>
-        </div>
-
-        <div class="step">
-          <div class="step-label">Step 3</div>
-          <div class="step-title">Deploy, test, and refine</div>
-          <p>
-            We roll out the agent, monitor real calls, and make adjustments.
-            As your services, pricing, or policies evolve, we update the agent so it
-            stays sharp — like training a team member who never forgets.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ / OBJECTIONS -->
-    <section id="faq">
-      <div class="section-label">Questions</div>
-      <h2 class="section-title">“Is an AI Phone Agent really right for us?”</h2>
-      <p class="section-intro">
-        These are the honest questions owners ask before they move forward.
-      </p>
-
-      <div class="faq-grid">
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-q">Will my customers notice it’s AI?</div>
-            <div class="faq-a">
-              They’ll notice that someone answers, is patient, and is focused on helping.
-              We tune the agent to sound natural and clear, and we design it to be honest —
-              focused on solving the caller’s problem quickly and professionally.
-            </div>
+          <div class="hero-ctas">
+            <a href="#" class="btn-cta" data-scroll="how-it-works">
+              <span class="icon">▶️</span>
+              <span>Ver cómo funciona</span>
+            </a>
+            <a href="#" class="btn-secondary" data-scroll="features">
+              <span>¿Qué puede hacer exactamente?</span>
+            </a>
           </div>
-          <div class="faq-item">
-            <div class="faq-q">What if a call is too complex?</div>
-            <div class="faq-a">
-              Your agent knows its limits. When a call goes beyond the script
-              (pricing exceptions, unusual situations, key relationships),
-              it gathers details, flags the call, and makes sure you or your
-              manager have what you need to respond personally.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Is this trying to replace my people?</div>
-            <div class="faq-a">
-              No. The goal is to increase capacity, not replace people.
-              You can keep the humans you trust on the highest-value calls and
-              let the agent handle the repetitive, time-consuming ones.
-            </div>
+
+          <div class="hero-footnote">
+            Diseñado para dueños-operadores de limpieza, oficios y servicios a hogares/instalaciones
+            que están cansados de ser la única “recepcionista” del negocio.
           </div>
         </div>
 
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-q">Does it work with the tools we already use?</div>
-            <div class="faq-a">
-              We adapt to the tools you already use for scheduling and communication
-              where possible (calendars, forms, CRMs). During the initial call,
-              we’ll review your setup and talk about realistic options.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">How much control do we have?</div>
-            <div class="faq-a">
-              A lot. You approve the script, the decision rules, and the boundaries.
-              If something changes in your business, we update the agent so it stays aligned
-              with how you want calls handled.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">How do we talk about pricing?</div>
-            <div class="faq-a">
-              Pricing depends on call volume, complexity, and integrations.
-              The first conversation is simply about fit: whether an AI Phone Agent
-              will realistically pay for itself in your situation. If it won’t, we’ll say so.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <aside class="hero-right">
+          <div class="hero-right-label">DEL CAOS A LA CONSISTENCIA</div>
+          <div class="hero-right-title">Antes vs. Después de un Agente Telefónico con IA</div>
 
-    <!-- FINAL CTA -->
-    <section id="contact">
-      <div class="band">
-        <div>
-          <strong>Ready to stop being the only “receptionist” in your business?</strong><br />
-          Let’s look at your call flow, your customers, and your goals — and see if a Familia AI Phone Agent
-          makes sense for your business right now.
+          <div class="metric-row">
+            <div class="metric">
+              <div class="value">24/7</div>
+              <div class="label">Cobertura de recepción y agenda</div>
+            </div>
+            <div class="metric">
+              <div class="value">0</div>
+              <div class="label">Llamadas dependiendo de “si el dueño está libre”</div>
+            </div>
+            <div class="metric">
+              <div class="value">100%</div>
+              <div class="label">Guionado a tu negocio</div>
+            </div>
+          </div>
+
+          <ul class="hero-right-list">
+            <li>
+              <span class="bullet">•</span>
+              <span>Contesta las llamadas, las filtra y actúa según las reglas que tú decides.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Agenda citas en tu calendario y envía confirmaciones.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Responde “tengo una pregunta rápida” con respuestas claras y aprobadas.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Da seguimiento a cotizaciones y clientes antiguos para que el dinero no se pierda en el aire.</span>
+            </li>
+          </ul>
+
+          <div class="hero-ribbon">
+            HECHO PARA DUEÑOS REALES
+          </div>
+        </aside>
+      </section>
+
+      <!-- PROBLEM -->
+      <section id="problem-es">
+        <div class="section-label">La realidad</div>
+        <h2 class="section-title">Tu situación actual con el teléfono te está costando dinero en silencio.</h2>
+        <p class="section-intro">
+          La mayoría de los dueños de negocios de servicios no tienen una recepcionista de tiempo completo.
+          Eso significa llamadas perdidas, conversaciones a la carrera y una sensación constante de que algo
+          importante se te está escapando.
+        </p>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <span class="problem-bad">Sin un Agente Telefónico con IA:</span>
+            <ul class="problem-list">
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Las llamadas entran mientras manejas, estás en un trabajo o con tu familia — y tienes que escoger.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Los clientes nuevos cuelgan y llaman a la siguiente empresa cuando nadie contesta.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Los clientes actuales no reciben respuestas rápidas y la confianza empieza a bajar.</span>
+              </li>
+              <li>
+                <span class="icon">⚠️</span>
+                <span>Tu mente siempre está “de guardia”, incluso cuando deberías estar desconectado.</span>
+              </li>
+            </ul>
+            <div class="quote-box">
+              “Si no contesto, puedo perder un trabajo. Si contesto, estoy distraído,
+              con prisa, y mi familia recibe lo que queda de mi energía.”
+            </div>
+          </div>
+
+          <div class="problem-card">
+            <span class="problem-bad">Con un Agente Telefónico con IA de Familia:</span>
+            <ul class="problem-list">
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Cada llamada se atiende con un agente calmado y consistente que sigue tu guion, no su estado de ánimo.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Los prospectos se califican, se agendan y quedan documentados mientras tú te enfocas en el trabajo de alto valor.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Ves un registro claro de quién llamó, qué quería y qué se agendó.</span>
+              </li>
+              <li>
+                <span class="icon" style="color: var(--accent-green-soft);">✅</span>
+                <span>Tu teléfono deja de ser el cuello de botella — y tus noches vuelven a sentirse como noches.</span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="band-actions">
-          <a href="mailto:info@example.com?subject=Familia%20AI%20Phone%20Agent%20Discovery" class="btn-cta">
-            <span class="icon">✉️</span>
-            <span>Email to request a call</span>
-          </a>
-          <a href="#" class="btn-secondary">
-            Prefer WhatsApp? Add your link here.
-          </a>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features-es">
+        <div class="section-label">Qué es</div>
+        <h2 class="section-title">Tu recepcionista, agente de agenda y seguimiento — ajustado a tu negocio.</h2>
+        <p class="section-intro">
+          Un Agente Telefónico con IA de Familia es un sistema de llamadas hecho a la medida
+          que contesta el teléfono, sigue reglas claras y se integra con tus herramientas actuales,
+          sin que tengas que contratar un puesto de tiempo completo.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Guion hecho a la medida de tu negocio</span>
+          <span class="pill">Tono y respuestas consistentes</span>
+          <span class="pill">Funciona con tu calendario y sistemas</span>
+          <span class="pill">Lo puedes actualizar cuando cambie tu operación</span>
         </div>
-      </div>
-    </section>
+
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📞</div>
+              <div>
+                <div class="card-title">Recepcionista de entrada</div>
+                <div class="card-tag">Respuesta • Filtro • Ruta</div>
+              </div>
+            </div>
+            <div class="card-body">
+              Cada llamada se saluda de la misma forma: amable, clara y profesional.
+              El agente captura la información correcta, identifica situaciones urgentes
+              y asegura que el cliente sienta que lo están atendiendo.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>Saludo que refleja tu marca y tu personalidad.</span></li>
+              <li><span class="icon">✚</span><span>Respuestas a preguntas comunes (zona de servicio, horarios, rangos de precio).</span></li>
+              <li><span class="icon">✚</span><span>Marca las llamadas importantes para que tú o tu equipo regresen la llamada personalmente.</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">📅</div>
+              <div>
+                <div class="card-title">Agente de agenda</div>
+                <div class="card-tag">Citas • Estimados • Recorridos</div>
+              </div>
+            </div>
+            <div class="card-body">
+              En lugar de una lista caótica de “personas a las que tengo que regresar la llamada”,
+              el agente agenda citas reales en tu calendario y deja claro para qué es cada una.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>Se conecta a un calendario o sistema de captura que ya uses.</span></li>
+              <li><span class="icon">✚</span><span>Respeta bloques y márgenes para que no termines sobre-agendado.</span></li>
+              <li><span class="icon">✚</span><span>Envía confirmaciones (por SMS o correo, según tu configuración).</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon">🔁</div>
+              <div>
+                <div class="card-title">Seguimiento y reactivación</div>
+                <div class="card-tag">Cotizaciones • Recordatorios • Clientes antiguos</div>
+              </div>
+            </div>
+            <div class="card-body">
+              Tu agente puede entrenarse para dar seguimiento a cotizaciones,
+              revisar cómo van los clientes anteriores y recordar citas futuras.
+            </div>
+            <ul class="feature-list">
+              <li><span class="icon">✚</span><span>Llamadas de “solo quería saber qué pensó de la cotización” que nunca tenías tiempo de hacer.</span></li>
+              <li><span class="icon">✚</span><span>Recordatorios de cita que reducen ausencias y cancelaciones de última hora.</span></li>
+              <li><span class="icon">✚</span><span>Llamadas de reactivación a clientes antiguos en el ritmo que tú definas.</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works-es">
+        <div class="section-label">Cómo funciona</div>
+        <h2 class="section-title">Diseñamos tu Agente Telefónico con IA contigo, no por ti.</h2>
+        <p class="section-intro">
+          No es un robot cualquiera lanzado a tu negocio. Es una implementación guiada
+          donde capturamos cómo quieres que se hagan las cosas, y lo convertimos en una
+          experiencia de llamada consistente.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-label">Paso 1</div>
+            <div class="step-title">Mapeamos tus llamadas y decisiones</div>
+            <p>
+              Revisamos cómo funcionan hoy tus llamadas: prospectos nuevos, clientes actuales,
+              emergencias y “tengo una pregunta rápida”. Definimos juntos qué es una buena llamada
+              para tu negocio, para que el agente sepa qué priorizar.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-label">Paso 2</div>
+            <div class="step-title">Diseñamos el guion y los flujos</div>
+            <p>
+              Construimos flujos de conversación que encajan con tu tono — profesional, amable y directo.
+              Tú ves el guion, lo apruebas y ajustas cualquier detalle que no se sienta como tú.
+              El agente simplemente sigue las reglas que tú marcas.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-label">Paso 3</div>
+            <div class="step-title">Implementamos, probamos y afinamos</div>
+            <p>
+              Lanzamos el agente, monitoreamos llamadas reales y hacemos ajustes.
+              A medida que cambian tus servicios, precios o políticas, actualizamos el agente
+              para que se mantenga alineado — como capacitar a un miembro del equipo que no olvida.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq-es">
+        <div class="section-label">Preguntas</div>
+        <h2 class="section-title">“¿De verdad un Agente Telefónico con IA es para nosotros?”</h2>
+        <p class="section-intro">
+          Estas son las preguntas honestas que hacen los dueños antes de decir que sí.
+        </p>
+
+        <div class="faq-grid">
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">¿Mis clientes se van a dar cuenta de que es IA?</div>
+              <div class="faq-a">
+                Lo que van a notar es que alguien contesta, tiene paciencia y está enfocado en ayudar.
+                Ajustamos el agente para que suene natural y claro, y lo diseñamos para ser honesto:
+                resolver el problema del cliente de forma rápida y profesional.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Qué pasa si la llamada es muy complicada?</div>
+              <div class="faq-a">
+                Tu agente conoce sus límites. Cuando una llamada se sale del guion
+                (excepciones de precio, situaciones raras, relaciones importantes),
+                recoge los detalles, marca la llamada y se asegura de que tú o tu encargado
+                tengan la información necesaria para responder personalmente.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Esto quiere reemplazar a mi gente?</div>
+              <div class="faq-a">
+                No. La meta es aumentar capacidad, no reemplazar personas.
+                Tus colaboradores pueden enfocarse en las llamadas de mayor valor,
+                y el agente se encarga de las repetitivas y las que consumen más tiempo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">¿Funciona con las herramientas que ya usamos?</div>
+              <div class="faq-a">
+                Nos adaptamos a las herramientas que ya usas para agenda y comunicación
+                cuando es posible (calendarios, formularios, CRM). En la primera llamada
+                revisamos tu configuración y hablamos de opciones realistas.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Cuánto control tenemos?</div>
+              <div class="faq-a">
+                Mucho. Tú apruebas el guion, las reglas de decisión y los límites.
+                Si algo cambia en tu negocio, actualizamos el agente para que se mantenga
+                alineado con la forma en que quieres manejar las llamadas.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q">¿Cómo se maneja el tema del precio?</div>
+              <div class="faq-a">
+                El precio depende del volumen de llamadas, la complejidad y las integraciones.
+                La primera conversación es solo para ver si encaja: si un Agente Telefónico con IA
+                realmente se va a pagar solo en tu caso. Si no es así, te lo diremos con claridad.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section id="contact-es">
+        <div class="band">
+          <div>
+            <strong>¿Listo para dejar de ser la única “recepcionista” de tu negocio?</strong><br />
+            Hagamos una revisión de tu flujo de llamadas, tus clientes y tus metas, y veamos si un
+            Agente Telefónico con IA de Familia tiene sentido para tu negocio en este momento.
+          </div>
+          <div class="band-actions">
+            <a href="mailto:info@example.com?subject=Familia%20Agente%20Telefonico%20IA%20-%20Sesion%20de%20Descubrimiento" class="btn-cta">
+              <span class="icon">✉️</span>
+              <span>Enviar correo para agendar</span>
+            </a>
+            <a href="#" class="btn-secondary">
+              ¿Prefieres WhatsApp? Agrega tu enlace aquí.
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      © <span id="year"></span> Familia Business Coaching — AI Phone Agents for service-business owners.
+      © <span id="year"></span> Familia Business Coaching — AI Phone Agents / Agentes Telefónicos con IA.
     </footer>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      const html = document.documentElement;
+      const enView = document.getElementById('lang-en');
+      const esView = document.getElementById('lang-es');
+      const toggleBtn = document.getElementById('lang-toggle');
+      const navSubtitle = document.getElementById('nav-subtitle');
+      const navPill = document.getElementById('nav-pill-text');
+      const navCtaText = document.getElementById('nav-cta-text');
+
+      function applyLanguage(lang) {
+        if (lang === 'es') {
+          enView.classList.remove('active');
+          esView.classList.add('active');
+          html.lang = 'es';
+          toggleBtn.textContent = 'English';
+          navSubtitle.textContent = 'Agentes Telefónicos con IA para negocios de servicios';
+          navPill.textContent = 'Agentes telefónicos con IA';
+          navCtaText.textContent = 'Agenda una llamada de 15 minutos';
+        } else {
+          enView.classList.add('active');
+          esView.classList.remove('active');
+          html.lang = 'en';
+          toggleBtn.textContent = 'Español';
+          navSubtitle.textContent = 'AI Phone Agents for Service Businesses';
+          navPill.textContent = 'Bilingual AI Phone Agents';
+          navCtaText.textContent = 'Book a 15-minute fit call';
+        }
+        localStorage.setItem('siteLang', lang);
+      }
+
+      // Auto-detect or use stored preference
+      let lang = localStorage.getItem('siteLang');
+      if (!lang) {
+        const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        lang = browserLang.startsWith('es') ? 'es' : 'en';
+      }
+      applyLanguage(lang);
+
+      // Toggle handler
+      toggleBtn.addEventListener('click', () => {
+        const current = html.lang === 'es' ? 'es' : 'en';
+        const next = current === 'en' ? 'es' : 'en';
+        applyLanguage(next);
+      });
+
+      // Smooth scroll handler for CTAs
+      function handleScrollClick(e) {
+        const targetKey = this.getAttribute('data-scroll');
+        if (!targetKey) return;
+        e.preventDefault();
+        const currentLang = html.lang === 'es' ? 'es' : 'en';
+        const sectionId = targetKey === 'features'
+          ? `features-${currentLang}`
+          : targetKey === 'how-it-works'
+          ? `how-it-works-${currentLang}`
+          : targetKey === 'contact'
+          ? `contact-${currentLang}`
+          : null;
+
+        if (sectionId) {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+
+      document.querySelectorAll('[data-scroll]').forEach(el => {
+        el.addEventListener('click', handleScrollClick);
+      });
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
