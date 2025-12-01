@@ -445,7 +445,7 @@
       margin-bottom: 3px;
     }
 
-    /* LEAD MAGNET */
+    /* LEAD MAGNET SECTION */
 
     .lead-band {
       margin-top: 32px;
@@ -494,36 +494,6 @@
       font-size: 0.86rem;
       color: var(--accent-green-soft);
       margin-top: 1px;
-    }
-
-    .lead-form {
-      font-size: 0.84rem;
-    }
-
-    .lead-form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 8px;
-    }
-
-    .lead-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .lead-input {
-      border-radius: 999px;
-      border: 1px solid rgba(145,179,211,0.9);
-      background: rgba(5, 12, 19, 0.95);
-      padding: 7px 11px;
-      font-size: 0.84rem;
-      color: var(--text-main);
-      outline: none;
-    }
-
-    .lead-input::placeholder {
-      color: rgba(180,191,214,0.7);
     }
 
     .lead-note {
@@ -621,6 +591,68 @@
 
     .lang-float-toggle span.text {
       white-space: nowrap;
+    }
+
+    /* LEAD MODAL */
+
+    .lead-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(1, 4, 12, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 60;
+      padding: 16px;
+    }
+
+    .lead-modal-overlay.open {
+      display: flex;
+    }
+
+    .lead-modal {
+      max-width: 420px;
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid rgba(141,184,210,0.95);
+      background:
+        radial-gradient(circle at top left, rgba(75,141,255,0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(25,195,125,0.32), transparent 55%),
+        rgba(4, 9, 20, 0.98);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.95);
+      padding: 18px 18px 14px;
+    }
+
+    .lead-modal-tag {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    .lead-modal-title {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .lead-modal-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .lead-modal-close {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(141,169,210,0.9);
+      background: rgba(5,11,24,0.98);
+      color: var(--text-muted);
+      padding: 7px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
     }
 
     /* RESPONSIVE */
@@ -895,74 +927,20 @@
               </li>
             </ul>
           </div>
-          <div>
-            <form
-              class="lead-form"
-              action="mailto:joseph.davis.mcelveen@gmail.com?subject=Go%20Fire%20Yourself%20eBook%20Request"
-              method="post"
-              enctype="text/plain"
+          <div style="display:flex;flex-direction:column;gap:8px;justify-content:center;">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScwb115thpN1m98jGwIyJtwAVHvELH5XYxthGQ88UgBzcb_Bw/viewform?usp=publish-editor"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="width:100%;justify-content:center;"
             >
-              <div class="lead-form-row">
-                <label class="lead-label" for="en-name">Name</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="en-name"
-                  name="Name"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="en-email">Email</label>
-                <input
-                  class="lead-input"
-                  type="email"
-                  id="en-email"
-                  name="Email"
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="en-phone">Phone (optional)</label>
-                <input
-                  class="lead-input"
-                  type="tel"
-                  id="en-phone"
-                  name="Phone"
-                  placeholder="Best number to reach you"
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="en-org">Organization</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="en-org"
-                  name="Organization"
-                  placeholder="Company / organization"
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="en-role">Position</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="en-role"
-                  name="Position"
-                  placeholder="Owner, manager, etc."
-                />
-              </div>
-              <button type="submit" class="btn-cta" style="width:100%; justify-content:center; margin-top:4px;">
-                <span class="btn-icon">📘</span>
-                <span>Send me the free e-book</span>
-              </button>
-              <p class="lead-note">
-                This will open your email app with your details filled in, so you can confirm the request.
-                No spam — just the e-book and anything you specifically ask for.
-              </p>
-            </form>
+              <span class="btn-icon">📘</span>
+              <span>Get the free e-book via Google Form</span>
+            </a>
+            <p class="lead-note">
+              This opens a short Google Form where you can drop your info and choose how you’d like to receive the book.
+            </p>
           </div>
         </div>
       </section>
@@ -1189,74 +1167,20 @@
               </li>
             </ul>
           </div>
-          <div>
-            <form
-              class="lead-form"
-              action="mailto:joseph.davis.mcelveen@gmail.com?subject=Despidete%20Ya%20eBook%20Gratuito"
-              method="post"
-              enctype="text/plain"
+          <div style="display:flex;flex-direction:column;gap:8px;justify-content:center;">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf8z_VxTcOk4uuzEaowHvYyDdVQduuFfrmt-LHHXiz1x6KCgg/viewform?usp=publish-editor"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="width:100%;justify-content:center;"
             >
-              <div class="lead-form-row">
-                <label class="lead-label" for="es-name">Nombre</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="es-name"
-                  name="Nombre"
-                  placeholder="Tu nombre"
-                  required
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="es-email">Correo electrónico</label>
-                <input
-                  class="lead-input"
-                  type="email"
-                  id="es-email"
-                  name="Correo"
-                  placeholder="tucorreo@ejemplo.com"
-                  required
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="es-phone">Teléfono (opcional)</label>
-                <input
-                  class="lead-input"
-                  type="tel"
-                  id="es-phone"
-                  name="Teléfono"
-                  placeholder="Mejor número para contactarte"
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="es-org">Organización</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="es-org"
-                  name="Organización"
-                  placeholder="Empresa u organización"
-                />
-              </div>
-              <div class="lead-form-row">
-                <label class="lead-label" for="es-role">Puesto</label>
-                <input
-                  class="lead-input"
-                  type="text"
-                  id="es-role"
-                  name="Puesto"
-                  placeholder="Dueño, gerente, etc."
-                />
-              </div>
-              <button type="submit" class="btn-cta" style="width:100%; justify-content:center; margin-top:4px;">
-                <span class="btn-icon">📘</span>
-                <span>Envíame el e-book gratuito</span>
-              </button>
-              <p class="lead-note">
-                Esto abrirá tu aplicación de correo con tus datos llenos para que confirmes la solicitud.
-                Sin spam — solo la guía y lo que tú pidas directamente.
-              </p>
-            </form>
+              <span class="btn-icon">📘</span>
+              <span>Obtener el e-book gratuito en Google Form</span>
+            </a>
+            <p class="lead-note">
+              Esto abre un Google Form corto donde puedes dejar tus datos y elegir cómo quieres recibir el libro.
+            </p>
           </div>
         </div>
       </section>
@@ -1300,6 +1224,57 @@
     </footer>
   </div>
 
+  <!-- Lead Magnet Modal -->
+  <div id="lead-modal" class="lead-modal-overlay">
+    <div class="lead-modal">
+      <!-- EN Modal -->
+      <div id="lead-modal-en" class="lead-modal-body">
+        <div class="lead-modal-tag">Free e-book</div>
+        <h2 class="lead-modal-title">Go Fire Yourself</h2>
+        <p class="lead-modal-text">
+          Want the owner’s guide to hiring, firing, and working with a coach — without guessing?
+          Grab the free e-book and see how to get people and coaching working in your favor.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLScwb115thpN1m98jGwIyJtwAVHvELH5XYxthGQ88UgBzcb_Bw/viewform?usp=publish-editor"
+          class="btn-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="width:100%;justify-content:center;margin-top:6px;"
+        >
+          <span class="btn-icon">📘</span>
+          <span>Get the free e-book</span>
+        </a>
+        <button id="lead-modal-close-en" class="lead-modal-close" type="button">
+          No thanks
+        </button>
+      </div>
+
+      <!-- ES Modal -->
+      <div id="lead-modal-es" class="lead-modal-body" style="display:none;">
+        <div class="lead-modal-tag">E-book gratuito</div>
+        <h2 class="lead-modal-title">¡Despídete Ya!</h2>
+        <p class="lead-modal-text">
+          ¿Quieres la guía para dueños sobre cómo contratar, despedir y trabajar con un coach de negocios
+          sin estar adivinando? Descarga el e-book gratuito y pon a la gente y al coaching a trabajar a tu favor.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSf8z_VxTcOk4uuzEaowHvYyDdVQduuFfrmt-LHHXiz1x6KCgg/viewform?usp=publish-editor"
+          class="btn-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="width:100%;justify-content:center;margin-top:6px;"
+        >
+          <span class="btn-icon">📘</span>
+          <span>Obtener el e-book gratuito</span>
+        </a>
+        <button id="lead-modal-close-es" class="lead-modal-close" type="button">
+          No, gracias
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating corner toggle -->
   <button id="lang-toggle-float" class="lang-float-toggle" type="button" aria-label="Switch language">
     <span class="flag" id="float-flag">🇲🇽</span>
@@ -1331,6 +1306,13 @@
       var footerFlag = document.getElementById('footer-flag');
       var footerText = document.getElementById('footer-text');
 
+      // Lead modal elements
+      var leadModal = document.getElementById('lead-modal');
+      var leadModalEn = document.getElementById('lead-modal-en');
+      var leadModalEs = document.getElementById('lead-modal-es');
+      var leadCloseEn = document.getElementById('lead-modal-close-en');
+      var leadCloseEs = document.getElementById('lead-modal-close-es');
+
       var stored = null;
       try {
         stored = localStorage.getItem('fbcLang');
@@ -1352,6 +1334,9 @@
           if (floatText) floatText.textContent = 'EN';
           if (footerFlag) footerFlag.textContent = '🇺🇸';
           if (footerText) footerText.textContent = 'View site in English';
+
+          if (leadModalEn) leadModalEn.style.display = 'none';
+          if (leadModalEs) leadModalEs.style.display = 'block';
         } else {
           enView.classList.add('active');
           esView.classList.remove('active');
@@ -1367,6 +1352,9 @@
           if (floatText) floatText.textContent = 'ES';
           if (footerFlag) footerFlag.textContent = '🇲🇽';
           if (footerText) footerText.textContent = 'Ver sitio en Español';
+
+          if (leadModalEn) leadModalEn.style.display = 'block';
+          if (leadModalEs) leadModalEs.style.display = 'none';
         }
 
         try {
@@ -1394,6 +1382,22 @@
       }
       if (footerToggle) {
         footerToggle.addEventListener('click', toggleLang);
+      }
+
+      // Auto-open lead magnet modal on page load
+      if (leadModal) {
+        leadModal.classList.add('open');
+
+        if (leadCloseEn) {
+          leadCloseEn.addEventListener('click', function () {
+            leadModal.classList.remove('open');
+          });
+        }
+        if (leadCloseEs) {
+          leadCloseEs.addEventListener('click', function () {
+            leadModal.classList.remove('open');
+          });
+        }
       }
     })();
   </script>
