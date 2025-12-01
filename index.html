@@ -445,6 +445,94 @@
       margin-bottom: 3px;
     }
 
+    /* LEAD MAGNET */
+
+    .lead-band {
+      margin-top: 32px;
+      padding: 18px 16px 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(141,184,210,0.95);
+      background:
+        radial-gradient(circle at top left, rgba(75,141,255,0.28), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(25,195,125,0.28), transparent 55%),
+        rgba(4,9,20,0.98);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+      gap: 18px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .lead-copy-title {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .lead-copy-sub {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .lead-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .lead-list li {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 5px;
+    }
+
+    .lead-list .icon {
+      font-size: 0.86rem;
+      color: var(--accent-green-soft);
+      margin-top: 1px;
+    }
+
+    .lead-form {
+      font-size: 0.84rem;
+    }
+
+    .lead-form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .lead-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .lead-input {
+      border-radius: 999px;
+      border: 1px solid rgba(145,179,211,0.9);
+      background: rgba(5, 12, 19, 0.95);
+      padding: 7px 11px;
+      font-size: 0.84rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .lead-input::placeholder {
+      color: rgba(180,191,214,0.7);
+    }
+
+    .lead-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
     /* FINAL CTA */
 
     .final-band {
@@ -550,6 +638,9 @@
       }
       .nav-right {
         justify-content: flex-start;
+      }
+      .lead-band {
+        grid-template-columns: minmax(0,1fr);
       }
     }
 
@@ -776,6 +867,106 @@
         </div>
       </section>
 
+      <!-- LEAD MAGNET (EN) -->
+      <section id="lead-en">
+        <div class="lead-band">
+          <div>
+            <div class="section-label">Free e-book</div>
+            <h2 class="lead-copy-title">
+              Go Fire Yourself: A business owner’s guide to hiring, firing, and working with a coach
+            </h2>
+            <p class="lead-copy-sub">
+              A short, practical guide for owners who are tired of carrying the whole business on their back
+              and want a clear way to think about people: who to hire, who to let go, and how to get real
+              value from a coach instead of one more “expense.”
+            </p>
+            <ul class="lead-list">
+              <li>
+                <span class="icon">✚</span>
+                <span>How to know when it’s time to hire, fire, or redesign a role.</span>
+              </li>
+              <li>
+                <span class="icon">✚</span>
+                <span>The difference between staff, contractors, and a true business coach.</span>
+              </li>
+              <li>
+                <span class="icon">✚</span>
+                <span>How to work with a coach so you get ROI — not just more ideas.</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <form
+              class="lead-form"
+              action="mailto:joseph.davis.mcelveen@gmail.com?subject=Go%20Fire%20Yourself%20eBook%20Request"
+              method="post"
+              enctype="text/plain"
+            >
+              <div class="lead-form-row">
+                <label class="lead-label" for="en-name">Name</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="en-name"
+                  name="Name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="en-email">Email</label>
+                <input
+                  class="lead-input"
+                  type="email"
+                  id="en-email"
+                  name="Email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="en-phone">Phone (optional)</label>
+                <input
+                  class="lead-input"
+                  type="tel"
+                  id="en-phone"
+                  name="Phone"
+                  placeholder="Best number to reach you"
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="en-org">Organization</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="en-org"
+                  name="Organization"
+                  placeholder="Company / organization"
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="en-role">Position</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="en-role"
+                  name="Position"
+                  placeholder="Owner, manager, etc."
+                />
+              </div>
+              <button type="submit" class="btn-cta" style="width:100%; justify-content:center; margin-top:4px;">
+                <span class="btn-icon">📘</span>
+                <span>Send me the free e-book</span>
+              </button>
+              <p class="lead-note">
+                This will open your email app with your details filled in, so you can confirm the request.
+                No spam — just the e-book and anything you specifically ask for.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
       <!-- FINAL CTA -->
       <section id="contact-en">
         <div class="final-band">
@@ -966,6 +1157,106 @@
               El agente atiende llamadas reales, vemos lo que pasa y ajustamos lo necesario
               mientras tu negocio sigue creciendo.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEAD MAGNET (ES) -->
+      <section id="lead-es">
+        <div class="lead-band">
+          <div>
+            <div class="section-label">E-book gratuito</div>
+            <h2 class="lead-copy-title">
+              ¡Despídete Ya!: La guía para dueños de negocios sobre cómo contratar, despedir y trabajar con un coach de negocios
+            </h2>
+            <p class="lead-copy-sub">
+              Una guía corta y práctica para dueños que están cansados de cargar el negocio solos
+              y quieren una forma clara de pensar sobre la gente: a quién contratar, a quién dejar ir
+              y cómo sacarle verdadero provecho a un coach en lugar de tener otro “gasto”.
+            </p>
+            <ul class="lead-list">
+              <li>
+                <span class="icon">✚</span>
+                <span>Cómo saber cuándo es momento de contratar, despedir o rediseñar un puesto.</span>
+              </li>
+              <li>
+                <span class="icon">✚</span>
+                <span>La diferencia entre empleados, contratistas y un coach de negocios de verdad.</span>
+              </li>
+              <li>
+                <span class="icon">✚</span>
+                <span>Cómo trabajar con un coach para obtener retorno de inversión — no solo más ideas.</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <form
+              class="lead-form"
+              action="mailto:joseph.davis.mcelveen@gmail.com?subject=Despidete%20Ya%20eBook%20Gratuito"
+              method="post"
+              enctype="text/plain"
+            >
+              <div class="lead-form-row">
+                <label class="lead-label" for="es-name">Nombre</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="es-name"
+                  name="Nombre"
+                  placeholder="Tu nombre"
+                  required
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="es-email">Correo electrónico</label>
+                <input
+                  class="lead-input"
+                  type="email"
+                  id="es-email"
+                  name="Correo"
+                  placeholder="tucorreo@ejemplo.com"
+                  required
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="es-phone">Teléfono (opcional)</label>
+                <input
+                  class="lead-input"
+                  type="tel"
+                  id="es-phone"
+                  name="Teléfono"
+                  placeholder="Mejor número para contactarte"
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="es-org">Organización</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="es-org"
+                  name="Organización"
+                  placeholder="Empresa u organización"
+                />
+              </div>
+              <div class="lead-form-row">
+                <label class="lead-label" for="es-role">Puesto</label>
+                <input
+                  class="lead-input"
+                  type="text"
+                  id="es-role"
+                  name="Puesto"
+                  placeholder="Dueño, gerente, etc."
+                />
+              </div>
+              <button type="submit" class="btn-cta" style="width:100%; justify-content:center; margin-top:4px;">
+                <span class="btn-icon">📘</span>
+                <span>Envíame el e-book gratuito</span>
+              </button>
+              <p class="lead-note">
+                Esto abrirá tu aplicación de correo con tus datos llenos para que confirmes la solicitud.
+                Sin spam — solo la guía y lo que tú pidas directamente.
+              </p>
+            </form>
           </div>
         </div>
       </section>
