@@ -128,7 +128,8 @@
     }
 
     .btn-cta,
-    .btn-ghost {
+    .btn-ghost,
+    .btn-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -160,29 +161,16 @@
       color: var(--text-main);
     }
 
+    .btn-toggle {
+      border: 1px solid rgba(141,169,210,0.9);
+      background: rgba(6,12,24,0.96);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      padding-inline: 11px;
+    }
+
     .btn-icon {
       font-size: 0.9rem;
-    }
-
-    /* SPANISH LINK BAR */
-
-    .lang-banner {
-      margin-top: 14px;
-      padding: 8px 12px;
-      border-radius: var(--radius-lg);
-      border: 1px dashed rgba(138,167,209,0.7);
-      background: rgba(3,7,16,0.9);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .lang-banner-text {
-      margin-right: 8px;
     }
 
     /* HERO */
@@ -302,7 +290,7 @@
       margin-top: 2px;
     }
 
-    /* MINI SECTIONS */
+    /* SECTIONS */
 
     section {
       margin-top: 34px;
@@ -452,6 +440,16 @@
       opacity: 0.86;
     }
 
+    /* LANGUAGE WRAPPERS */
+
+    .lang-view {
+      display: none;
+    }
+
+    .lang-view.active {
+      display: block;
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 860px) {
@@ -486,234 +484,424 @@
 </head>
 <body>
   <div class="page">
-    <!-- TOP NAV -->
+    <!-- TOP NAV (shared) -->
     <header class="nav">
       <div class="nav-left">
         <div class="logo-mark">F</div>
         <div class="logo-text">
           <div class="logo-main">FAMILIA BUSINESS COACHING</div>
-          <div class="logo-sub">AI Phone Agents for service businesses</div>
+          <div class="logo-sub" id="logo-sub">
+            AI Phone Agents for service businesses
+          </div>
         </div>
       </div>
       <div class="nav-right">
-        <div class="nav-pill">For real owners</div>
+        <div class="nav-pill" id="nav-pill">
+          For real owners
+        </div>
+        <button id="lang-toggle" class="btn-toggle" type="button">
+          ES
+        </button>
         <a
           href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
           class="btn-cta"
           target="_blank"
           rel="noopener noreferrer"
+          id="nav-cta"
         >
           <span class="btn-icon">📅</span>
-          <span>Book a 15-minute fit call</span>
+          <span id="nav-cta-text">Book a 15-minute fit call</span>
         </a>
       </div>
     </header>
 
-    <!-- SPANISH LINK -->
-    <div class="lang-banner">
-      <p class="lang-banner-text">
-        Prefer to read this in Spanish?
-      </p>
-      <a
-        href="https://josephmcelveen.github.io/fbc-website-esp/"
-        class="btn-ghost"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ver sitio en español
-      </a>
-    </div>
+    <!-- ENGLISH VIEW -->
+    <main id="lang-en" class="lang-view active">
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="eyebrow">AI Phone Agents</div>
+          <h1 class="hero-title">
+            Stop losing money to <span>missed calls.</span>
+          </h1>
+          <p class="hero-sub">
+            Bilingual AI phone agents that answer, qualify, and book jobs for service businesses —
+            so the owner can get off the phone and back to real life.
+          </p>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="eyebrow">AI Phone Agents</div>
-        <h1 class="hero-title">
-          Stop losing money to <span>missed calls.</span>
-        </h1>
-        <p class="hero-sub">
-          Bilingual AI phone agents that answer, qualify, and book jobs for service businesses —
-          so the owner can get off the phone and back to real life.
-        </p>
-
-        <div class="hero-ctas">
-          <a
-            href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
-            class="btn-cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="btn-icon">📞</span>
-            <span>Talk about your call flow</span>
-          </a>
-          <a href="#how" class="btn-ghost">
-            <span class="btn-icon">▶️</span>
-            <span>See how it works</span>
-          </a>
-        </div>
-
-        <div class="hero-note">
-          Built for owner-operators in cleaning, trades, and home / facility services.
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <div class="hero-card-pill">What it gives you</div>
-        <div class="hero-card-title">
-          A receptionist and scheduler that never sleeps.
-        </div>
-
-        <div class="stat-row">
-          <div class="stat">
-            <div class="stat-value">24/7</div>
-            <div class="stat-label">reception & scheduling</div>
+          <div class="hero-ctas">
+            <a
+              href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="btn-icon">📞</span>
+              <span>Talk about your call flow</span>
+            </a>
+            <a href="#features-en" class="btn-ghost">
+              <span class="btn-icon">▶️</span>
+              <span>See how it works</span>
+            </a>
           </div>
-          <div class="stat">
-            <div class="stat-value">0</div>
-            <div class="stat-label">calls depending on “if the owner’s free”</div>
-          </div>
-          <div class="stat">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">scripted to your business</div>
+
+          <div class="hero-note">
+            Built for owner-operators in cleaning, trades, and home / facility services.
           </div>
         </div>
 
-        <ul class="hero-list">
-          <li>
-            <span class="hero-list-icon">✚</span>
-            <span>Answers in English and Spanish with your tone and rules.</span>
-          </li>
-          <li>
-            <span class="hero-list-icon">✚</span>
-            <span>Books estimates and jobs straight into your calendar.</span>
-          </li>
-          <li>
-            <span class="hero-list-icon">✚</span>
-            <span>Follows up so quotes and past customers don’t go cold.</span>
-          </li>
-        </ul>
-      </aside>
-    </section>
-
-    <!-- WHAT IT DOES -->
-    <section id="features">
-      <div class="section-header">
-        <div class="section-label">From chaos to consistency</div>
-        <h2 class="section-title">One agent, three big jobs.</h2>
-        <p class="section-sub">
-          Keep it simple: every call is answered, routed, and turned into clear next steps.
-        </p>
-      </div>
-
-      <div class="pill-row">
-        <span class="pill">Inbound calls</span>
-        <span class="pill">Scheduling</span>
-        <span class="pill">Follow-up</span>
-      </div>
-
-      <div class="card-grid">
-        <article class="mini-card">
-          <div class="mini-card-head">
-            <span class="mini-card-icon">☎️</span>
-            <h3 class="mini-card-title">Reception & screening</h3>
+        <aside class="hero-card">
+          <div class="hero-card-pill">What it gives you</div>
+          <div class="hero-card-title">
+            A receptionist and scheduler that never sleeps.
           </div>
-          <p>
-            Every call gets a calm, consistent greeting, basic questions answered, and the right
-            info captured — whether you’re on a job or with your family.
-          </p>
-        </article>
 
-        <article class="mini-card">
-          <div class="mini-card-head">
-            <span class="mini-card-icon">📆</span>
-            <h3 class="mini-card-title">Booking & confirmations</h3>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-value">24/7</div>
+              <div class="stat-label">reception & scheduling</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">0</div>
+              <div class="stat-label">calls depending on “if the owner’s free”</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">scripted to your business</div>
+            </div>
           </div>
-          <p>
-            The agent books estimates and jobs into your calendar, adds notes, and sends
-            confirmations so your day isn’t built on sticky notes and memory.
-          </p>
-        </article>
 
-        <article class="mini-card">
-          <div class="mini-card-head">
-            <span class="mini-card-icon">🔁</span>
-            <h3 class="mini-card-title">Follow-up & reactivation</h3>
+          <ul class="hero-list">
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Answers in English and Spanish with your tone and rules.</span>
+            </li>
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Books estimates and jobs straight into your calendar.</span>
+            </li>
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Follows up so quotes and past customers don’t go cold.</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- WHAT IT DOES -->
+      <section id="features-en">
+        <div class="section-header">
+          <div class="section-label">From chaos to consistency</div>
+          <h2 class="section-title">One agent, three big jobs.</h2>
+          <p class="section-sub">
+            Keep it simple: every call is answered, routed, and turned into clear next steps.
+          </p>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Inbound calls</span>
+          <span class="pill">Scheduling</span>
+          <span class="pill">Follow-up</span>
+        </div>
+
+        <div class="card-grid">
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">☎️</span>
+              <h3 class="mini-card-title">Reception & screening</h3>
+            </div>
+            <p>
+              Every call gets a calm, consistent greeting, basic questions answered, and the right
+              info captured — whether you’re on a job or with your family.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">📆</span>
+              <h3 class="mini-card-title">Booking & confirmations</h3>
+            </div>
+            <p>
+              The agent books estimates and jobs into your calendar, adds notes, and sends
+              confirmations so your day isn’t built on sticky notes and memory.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">🔁</span>
+              <h3 class="mini-card-title">Follow-up & reactivation</h3>
+            </div>
+            <p>
+              Quote check-ins, reminders, and past-customer reactivation happen on a schedule —
+              without you having to “remember to call” ever again.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-en">
+        <div class="section-header">
+          <div class="section-label">How it works</div>
+          <h2 class="section-title">Designed with you, not dropped on you.</h2>
+          <p class="section-sub">
+            We capture how you want calls handled, then turn it into a phone experience that feels like
+            your company — not a random bot.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-label">Step 1</div>
+            <div class="step-title">Map your calls</div>
+            <p>
+              Quick call to walk through how your phone works today — new leads, existing clients,
+              emergencies, and “quick questions.”
+            </p>
           </div>
-          <p>
-            Quote check-ins, reminders, and past-customer reactivation happen on a schedule —
-            without you having to “remember to call” ever again.
-          </p>
-        </article>
-      </div>
-    </section>
+          <div class="step">
+            <div class="step-label">Step 2</div>
+            <div class="step-title">Script & rules</div>
+            <p>
+              We build a simple script and routing rules that match your tone and priorities.
+              You approve it before anything goes live.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-label">Step 3</div>
+            <div class="step-title">Deploy & refine</div>
+            <p>
+              The agent takes real calls, we watch what happens, and tighten anything that needs
+              to change as your business evolves.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- HOW IT WORKS -->
-    <section id="how">
-      <div class="section-header">
-        <div class="section-label">How it works</div>
-        <h2 class="section-title">Designed with you, not dropped on you.</h2>
-        <p class="section-sub">
-          We capture how you want calls handled, then turn it into a phone experience that feels like
-          your company — not a random bot.
-        </p>
-      </div>
+      <!-- FINAL CTA -->
+      <section id="contact-en">
+        <div class="final-band">
+          <div class="final-text">
+            <strong>Ready to stop being the only “receptionist” in your business?</strong><br />
+            Let’s look at your call flow and see if an AI Phone Agent will realistically pay for itself
+            in your situation.
+          </div>
+          <div class="final-actions">
+            <a
+              href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="btn-icon">📅</span>
+              <span>Book a 15-minute fit call</span>
+            </a>
+            <a
+              href="mailto:joseph.davis.mcelveen@gmail.com?subject=AI%20Phone%20Agent%20Question"
+              class="btn-ghost"
+            >
+              <span class="btn-icon">✉️</span>
+              <span>Email Joseph</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-label">Step 1</div>
-          <div class="step-title">Map your calls</div>
-          <p>
-            Quick call to walk through how your phone works today — new leads, existing clients,
-            emergencies, and “quick questions.”
+    <!-- SPANISH VIEW -->
+    <main id="lang-es" class="lang-view">
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Agentes Telefónicos con IA</div>
+          <h1 class="hero-title">
+            Deja de perder dinero por <span>llamadas perdidas.</span>
+          </h1>
+          <p class="hero-sub">
+            Agentes telefónicos con IA, bilingües, que atienden, califican y agendan trabajos
+            para negocios de servicio — para que el dueño pueda salir del teléfono y volver a la vida real.
           </p>
-        </div>
-        <div class="step">
-          <div class="step-label">Step 2</div>
-          <div class="step-title">Script & rules</div>
-          <p>
-            We build a simple script and routing rules that match your tone and priorities.
-            You approve it before anything goes live.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-label">Step 3</div>
-          <div class="step-title">Deploy & refine</div>
-          <p>
-            The agent takes real calls, we watch what happens, and tighten anything that needs
-            to change as your business evolves.
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <!-- FINAL CTA -->
-    <section id="contact">
-      <div class="final-band">
-        <div class="final-text">
-          <strong>Ready to stop being the only “receptionist” in your business?</strong><br />
-          Let’s look at your call flow and see if an AI Phone Agent will realistically pay for itself
-          in your situation.
+          <div class="hero-ctas">
+            <a
+              href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="btn-icon">📞</span>
+              <span>Hablar de tu flujo de llamadas</span>
+            </a>
+            <a href="#features-es" class="btn-ghost">
+              <span class="btn-icon">▶️</span>
+              <span>Ver cómo funciona</span>
+            </a>
+          </div>
+
+          <div class="hero-note">
+            Diseñado para dueños-operadores en limpieza, oficios y servicios para hogares y edificios.
+          </div>
         </div>
-        <div class="final-actions">
-          <a
-            href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
-            class="btn-cta"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="btn-icon">📅</span>
-            <span>Book a 15-minute fit call</span>
-          </a>
-          <a
-            href="mailto:joseph.davis.mcelveen@gmail.com?subject=AI%20Phone%20Agent%20Question"
-            class="btn-ghost"
-          >
-            <span class="btn-icon">✉️</span>
-            <span>Email Joseph</span>
-          </a>
+
+        <aside class="hero-card">
+          <div class="hero-card-pill">Lo que te da</div>
+          <div class="hero-card-title">
+            Una recepcionista y agenda que nunca duerme.
+          </div>
+
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-value">24/7</div>
+              <div class="stat-label">atención y programación</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">0</div>
+              <div class="stat-label">llamadas dependiendo de “si el dueño está libre”</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">guión hecho a la medida de tu negocio</div>
+            </div>
+          </div>
+
+          <ul class="hero-list">
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Contesta en inglés y español con tu tono y tus reglas.</span>
+            </li>
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Agenda cotizaciones y trabajos directo en tu calendario.</span>
+            </li>
+            <li>
+              <span class="hero-list-icon">✚</span>
+              <span>Da seguimiento para que tus cotizaciones y clientes antiguos no se enfríen.</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- WHAT IT DOES -->
+      <section id="features-es">
+        <div class="section-header">
+          <div class="section-label">De caos a consistencia</div>
+          <h2 class="section-title">Un agente, tres trabajos clave.</h2>
+          <p class="section-sub">
+            Mantén las cosas simples: cada llamada se atiende, se dirige y se convierte en un siguiente paso claro.
+          </p>
         </div>
-      </div>
-    </section>
+
+        <div class="pill-row">
+          <span class="pill">Llamadas entrantes</span>
+          <span class="pill">Agendado</span>
+          <span class="pill">Seguimiento</span>
+        </div>
+
+        <div class="card-grid">
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">☎️</span>
+              <h3 class="mini-card-title">Recepción y filtro</h3>
+            </div>
+            <p>
+              Cada llamada recibe un saludo tranquilo y consistente, se responden preguntas básicas
+              y se captura la información correcta — estés en un trabajo o con tu familia.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">📆</span>
+              <h3 class="mini-card-title">Agendado y confirmaciones</h3>
+            </div>
+            <p>
+              El agente agenda cotizaciones y trabajos en tu calendario, añade notas
+              y envía confirmaciones para que tu día no dependa de papelitos ni memoria.
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <div class="mini-card-head">
+              <span class="mini-card-icon">🔁</span>
+              <h3 class="mini-card-title">Seguimiento y reactivación</h3>
+            </div>
+            <p>
+              Revisiones de cotizaciones, recordatorios y reactivación de clientes antiguos
+              suceden con un sistema — sin que tengas que “acordarte de llamar” nunca más.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-es">
+        <div class="section-header">
+          <div class="section-label">Cómo funciona</div>
+          <h2 class="section-title">Diseñado contigo, no impuesto sobre ti.</h2>
+          <p class="section-sub">
+            Capturamos cómo quieres que se manejen las llamadas y lo convertimos en una experiencia
+            telefónica que se siente como tu empresa — no como un robot genérico.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-label">Paso 1</div>
+            <div class="step-title">Mapear tus llamadas</div>
+            <p>
+              Llamada corta donde revisamos cómo funciona hoy tu teléfono — prospectos nuevos,
+              clientes actuales, emergencias y “preguntas rápidas”.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-label">Paso 2</div>
+            <div class="step-title">Guión y reglas</div>
+            <p>
+              Creamos un guión sencillo y reglas de enrutamiento que respetan tu tono y tus prioridades.
+              Tú lo apruebas antes de que salga en vivo.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-label">Paso 3</div>
+            <div class="step-title">Lanzar y ajustar</div>
+            <p>
+              El agente atiende llamadas reales, vemos lo que pasa y ajustamos lo necesario
+              mientras tu negocio sigue creciendo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section id="contact-es">
+        <div class="final-band">
+          <div class="final-text">
+            <strong>¿Listo para dejar de ser el único “recepcionista” de tu negocio?</strong><br />
+            Revisemos tu flujo de llamadas y veamos si un Agente Telefónico con IA realmente se paga solo
+            en tu situación.
+          </div>
+          <div class="final-actions">
+            <a
+              href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+              class="btn-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="btn-icon">📅</span>
+              <span>Agenda una llamada de 15 minutos</span>
+            </a>
+            <a
+              href="mailto:joseph.davis.mcelveen@gmail.com?subject=Pregunta%20sobre%20Agente%20Telef%C3%B3nico%20con%20IA"
+              class="btn-ghost"
+            >
+              <span class="btn-icon">✉️</span>
+              <span>Escribirle a Joseph</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       © <span id="year"></span> Familia Business Coaching — Bilingual AI Phone Agents for real owners.
@@ -721,10 +909,56 @@
   </div>
 
   <script>
-    // Footer year
     (function () {
+      // Footer year
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
+
+      var html = document.documentElement;
+      var enView = document.getElementById('lang-en');
+      var esView = document.getElementById('lang-es');
+      var toggle = document.getElementById('lang-toggle');
+      var logoSub = document.getElementById('logo-sub');
+      var navPill = document.getElementById('nav-pill');
+      var navCtaText = document.getElementById('nav-cta-text');
+      var stored = null;
+
+      try {
+        stored = localStorage.getItem('fbcLang');
+      } catch (e) {}
+
+      function applyLang(lang) {
+        if (lang === 'es') {
+          enView.classList.remove('active');
+          esView.classList.add('active');
+          html.lang = 'es';
+          if (toggle) toggle.textContent = 'EN';
+          if (logoSub) logoSub.textContent = 'Agentes Telefónicos con IA para negocios de servicio';
+          if (navPill) navPill.textContent = 'Para dueños reales';
+          if (navCtaText) navCtaText.textContent = 'Agenda una llamada de 15 minutos';
+        } else {
+          enView.classList.add('active');
+          esView.classList.remove('active');
+          html.lang = 'en';
+          if (toggle) toggle.textContent = 'ES';
+          if (logoSub) logoSub.textContent = 'AI Phone Agents for service businesses';
+          if (navPill) navPill.textContent = 'For real owners';
+          if (navCtaText) navCtaText.textContent = 'Book a 15-minute fit call';
+        }
+        try {
+          localStorage.setItem('fbcLang', lang);
+        } catch (e) {}
+      }
+
+      // Default to stored or English
+      applyLang(stored === 'es' ? 'es' : 'en');
+
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var next = html.lang === 'es' ? 'en' : 'es';
+          applyLang(next);
+        });
+      }
     })();
   </script>
 </body>
