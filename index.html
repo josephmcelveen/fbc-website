@@ -173,6 +173,49 @@
       font-size: 0.9rem;
     }
 
+    /* LANGUAGE BANNER */
+
+    .lang-banner {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(138,167,209,0.7);
+      background: rgba(3,7,16,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lang-switch-btn {
+      font-size: 1rem;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(141,169,210,0.9);
+      background: linear-gradient(135deg, #4b8dff, #19c37d);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.8);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-switch-btn span.flag {
+      font-size: 1.1rem;
+    }
+
+    .lang-switch-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+    }
+
+    .lang-switch-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.75);
+    }
+
     /* HERO */
 
     .hero {
@@ -440,6 +483,20 @@
       opacity: 0.86;
     }
 
+    .footer-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      margin-left: 6px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-toggle span.flag {
+      font-size: 1rem;
+    }
+
     /* LANGUAGE WRAPPERS */
 
     .lang-view {
@@ -448,6 +505,34 @@
 
     .lang-view.active {
       display: block;
+    }
+
+    /* FLOATING TOGGLE */
+
+    .lang-float-toggle {
+      position: fixed;
+      right: 14px;
+      bottom: 16px;
+      z-index: 40;
+      border-radius: 999px;
+      border: 1px solid rgba(141,169,210,0.9);
+      background: rgba(5,11,24,0.98);
+      color: #fff;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.9);
+    }
+
+    .lang-float-toggle span.flag {
+      font-size: 1.05rem;
+    }
+
+    .lang-float-toggle span.text {
+      white-space: nowrap;
     }
 
     /* RESPONSIVE */
@@ -479,6 +564,10 @@
       .final-actions {
         justify-content: center;
       }
+      .lang-float-toggle {
+        right: 10px;
+        bottom: 12px;
+      }
     }
   </style>
 </head>
@@ -499,8 +588,8 @@
         <div class="nav-pill" id="nav-pill">
           For real owners
         </div>
-        <button id="lang-toggle" class="btn-toggle" type="button">
-          ES
+        <button id="lang-toggle-nav" class="btn-toggle" type="button">
+          🇺🇸 EN
         </button>
         <a
           href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
@@ -514,6 +603,14 @@
         </a>
       </div>
     </header>
+
+    <!-- BIG CENTERED LANGUAGE BUTTON -->
+    <div class="lang-banner">
+      <button id="lang-toggle-top" class="lang-switch-btn" type="button">
+        <span class="flag">🇲🇽</span>
+        <span id="lang-top-text">Ver sitio en Español</span>
+      </button>
+    </div>
 
     <!-- ENGLISH VIEW -->
     <main id="lang-en" class="lang-view active">
@@ -905,8 +1002,18 @@
 
     <footer>
       © <span id="year"></span> Familia Business Coaching — Bilingual AI Phone Agents for real owners.
+      <span id="footer-toggle" class="footer-toggle">
+        <span class="flag" id="footer-flag">🇲🇽</span>
+        <span id="footer-text">Ver sitio en Español</span>
+      </span>
     </footer>
   </div>
+
+  <!-- Floating corner toggle -->
+  <button id="lang-toggle-float" class="lang-float-toggle" type="button" aria-label="Switch language">
+    <span class="flag" id="float-flag">🇲🇽</span>
+    <span class="text" id="float-text">ES</span>
+  </button>
 
   <script>
     (function () {
@@ -917,12 +1024,23 @@
       var html = document.documentElement;
       var enView = document.getElementById('lang-en');
       var esView = document.getElementById('lang-es');
-      var toggle = document.getElementById('lang-toggle');
+
       var logoSub = document.getElementById('logo-sub');
       var navPill = document.getElementById('nav-pill');
       var navCtaText = document.getElementById('nav-cta-text');
-      var stored = null;
 
+      var navToggle = document.getElementById('lang-toggle-nav');
+      var topToggle = document.getElementById('lang-toggle-top');
+      var floatToggle = document.getElementById('lang-toggle-float');
+      var footerToggle = document.getElementById('footer-toggle');
+
+      var topText = document.getElementById('lang-top-text');
+      var floatFlag = document.getElementById('float-flag');
+      var floatText = document.getElementById('float-text');
+      var footerFlag = document.getElementById('footer-flag');
+      var footerText = document.getElementById('footer-text');
+
+      var stored = null;
       try {
         stored = localStorage.getItem('fbcLang');
       } catch (e) {}
@@ -932,32 +1050,59 @@
           enView.classList.remove('active');
           esView.classList.add('active');
           html.lang = 'es';
-          if (toggle) toggle.textContent = 'EN';
+
           if (logoSub) logoSub.textContent = 'Agentes Telefónicos con IA para negocios de servicio';
           if (navPill) navPill.textContent = 'Para dueños reales';
           if (navCtaText) navCtaText.textContent = 'Agenda una llamada de 15 minutos';
+
+          if (navToggle) navToggle.textContent = '🇲🇽 ES';
+          if (topText) topText.textContent = 'View site in English';
+          if (floatFlag) floatFlag.textContent = '🇺🇸';
+          if (floatText) floatText.textContent = 'EN';
+          if (footerFlag) footerFlag.textContent = '🇺🇸';
+          if (footerText) footerText.textContent = 'View site in English';
         } else {
           enView.classList.add('active');
           esView.classList.remove('active');
           html.lang = 'en';
-          if (toggle) toggle.textContent = 'ES';
+
           if (logoSub) logoSub.textContent = 'AI Phone Agents for service businesses';
           if (navPill) navPill.textContent = 'For real owners';
           if (navCtaText) navCtaText.textContent = 'Book a 15-minute fit call';
+
+          if (navToggle) navToggle.textContent = '🇺🇸 EN';
+          if (topText) topText.textContent = 'Ver sitio en Español';
+          if (floatFlag) floatFlag.textContent = '🇲🇽';
+          if (floatText) floatText.textContent = 'ES';
+          if (footerFlag) footerFlag.textContent = '🇲🇽';
+          if (footerText) footerText.textContent = 'Ver sitio en Español';
         }
+
         try {
           localStorage.setItem('fbcLang', lang);
         } catch (e) {}
       }
 
       // Default to stored or English
-      applyLang(stored === 'es' ? 'es' : 'en');
+      var initial = stored === 'es' ? 'es' : 'en';
+      applyLang(initial);
 
-      if (toggle) {
-        toggle.addEventListener('click', function () {
-          var next = html.lang === 'es' ? 'en' : 'es';
-          applyLang(next);
-        });
+      function toggleLang() {
+        var next = html.lang === 'es' ? 'en' : 'es';
+        applyLang(next);
+      }
+
+      if (navToggle) {
+        navToggle.addEventListener('click', toggleLang);
+      }
+      if (topToggle) {
+        topToggle.addEventListener('click', toggleLang);
+      }
+      if (floatToggle) {
+        floatToggle.addEventListener('click', toggleLang);
+      }
+      if (footerToggle) {
+        footerToggle.addEventListener('click', toggleLang);
       }
     })();
   </script>
