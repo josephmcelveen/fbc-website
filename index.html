@@ -219,11 +219,16 @@
     /* HERO */
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 26px;
-      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 20px;
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    .hero > div {
+      max-width: 640px;
     }
 
     .eyebrow {
@@ -250,6 +255,8 @@
       max-width: 32rem;
       line-height: 1.6;
       margin-bottom: 16px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-ctas {
@@ -257,6 +264,7 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 10px;
+      justify-content: center;
     }
 
     .hero-note {
@@ -275,6 +283,8 @@
       padding: 16px 16px 17px;
       position: relative;
       overflow: hidden;
+      max-width: 520px;
+      width: 100%;
     }
 
     .hero-card-pill {
@@ -296,11 +306,13 @@
       gap: 14px;
       margin-top: 10px;
       margin-bottom: 10px;
+      justify-content: center;
     }
 
     .stat {
       flex: 1 1 90px;
       min-width: 90px;
+      max-width: 130px;
     }
 
     .stat-value {
@@ -319,6 +331,7 @@
       font-size: 0.86rem;
       color: var(--text-muted);
       line-height: 1.6;
+      text-align: left;
     }
 
     .hero-list li {
@@ -658,12 +671,6 @@
     /* RESPONSIVE */
 
     @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .hero-card {
-        margin-top: 6px;
-      }
       .nav {
         flex-direction: column;
         align-items: flex-start;
@@ -673,6 +680,9 @@
       }
       .lead-band {
         grid-template-columns: minmax(0,1fr);
+      }
+      .hero-card {
+        margin-top: 6px;
       }
     }
 
@@ -690,6 +700,9 @@
       .lang-float-toggle {
         right: 10px;
         bottom: 12px;
+      }
+      .hero-list {
+        text-align: left;
       }
     }
   </style>
