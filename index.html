@@ -319,11 +319,11 @@
     .tlabel { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* =========================
-       OFFER CARDS
+       OFFER AREA (REDESIGNED)
        ========================= */
     .offer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
       margin-top: 18px;
       max-width: 980px;
@@ -352,7 +352,6 @@
     }
 
     .offer-card h3 { font-size: 1.12rem; margin-bottom: 6px; }
-    .offer-card h4 { font-size: 0.98rem; color: rgba(249,251,255,0.92); margin-bottom: 8px; font-weight: 650; }
     .offer-card .price { font-size: 1.35rem; font-weight: 800; color: var(--accent-green); margin: 4px 0 10px; }
     .offer-card .setup {
       font-size: 0.95rem;
@@ -365,14 +364,6 @@
     .offer-card ul { list-style: none; margin-top: 6px; }
     .offer-card li { display: flex; gap: 8px; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; font-size: 0.9rem; }
     .offer-card li .bullet { color: var(--accent-green-soft); margin-top: 2px; }
-
-    .offer-card.highlight {
-      border: 1px solid rgba(245,192,99,0.95);
-      background:
-        radial-gradient(circle at top left, rgba(245,192,99,0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(75,141,255,0.18), transparent 55%),
-        rgba(4,9,20,0.98);
-    }
 
     .offer-card.premium {
       border: 1px solid rgba(75,141,255,0.95);
@@ -392,6 +383,67 @@
       font-size: 0.88rem;
       line-height: 1.55;
     }
+
+    /* Intro banner (full-width horizontal) */
+    .offer-intro {
+      grid-column: 1 / -1;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(245,192,99,0.95);
+      background:
+        radial-gradient(circle at top left, rgba(245,192,99,0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(75,141,255,0.18), transparent 55%),
+        rgba(4,9,20,0.98);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .offer-intro-left { min-width: 240px; flex: 1 1 420px; }
+    .offer-intro-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .intro-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,192,99,0.85);
+      background: rgba(6,10,18,0.92);
+      color: rgba(249,251,255,0.96);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+
+    .intro-price {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    .intro-price small {
+      font-size: 0.85rem;
+      font-weight: 650;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    .intro-bullets {
+      list-style: none;
+      margin-top: 8px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+    .intro-bullets li { display: flex; gap: 8px; margin-bottom: 4px; }
+    .intro-bullets .bullet { color: var(--accent-gold); margin-top: 2px; }
 
     /* =========================
        FINAL CTA BAND
@@ -474,6 +526,16 @@
       .final-actions { justify-content: center; }
     }
 
+    /* Offer grid stacks on smaller screens */
+    @media (max-width: 820px) {
+      .offer-grid { grid-template-columns: 1fr; }
+      .offer-intro { justify-content: center; text-align: center; }
+      .offer-intro-right { justify-content: center; }
+      .offer-intro-left { text-align: center; }
+      .intro-pill { margin-left: auto; margin-right: auto; }
+      .intro-bullets { text-align: left; max-width: 520px; margin-left: auto; margin-right: auto; }
+    }
+
     /* ====== SINGLE-ROW MOBILE NAV ====== */
     @media (max-width: 640px) {
       .page { padding: 16px 12px 32px; }
@@ -493,7 +555,7 @@
       .nav-left { gap: 8px; }
 
       .nav-right { flex-wrap: nowrap; gap: 6px; }
-      .nav-pill { font-size: 0.72rem; padding: 3px 8px; }
+      .nav-pill { font-size: 0.72rem; padding: 3px 10px; }
 
       .btn-toggle { padding: 6px 10px; font-size: 0.76rem; }
       .btn-cta { padding: 6px 10px; font-size: 0.76rem; }
@@ -535,7 +597,7 @@
     <!-- BIG CENTER LANGUAGE BUTTON -->
     <div class="lang-banner">
       <button id="lang-toggle-top" class="lang-switch-btn" type="button">
-        <span class="flag">🇲🇽</span>
+        <span class="flag" id="top-flag">🇲🇽</span>
         <span id="lang-top-text">Ver sitio en Español</span>
       </button>
     </div>
@@ -655,19 +717,35 @@
         </div>
 
         <div class="offer-grid">
-          <article class="offer-card highlight">
-            <div class="tag">Introductory Test Month</div>
-            <h3>First Month Only</h3>
-            <div class="price">$97 one-time</div>
-            <p><span style="color:var(--text-muted)">(normally $297–$997)</span></p>
-            <ul>
-              <li><span class="bullet">✚</span><span>Full access to your chosen tier for 30 days</span></li>
-              <li><span class="bullet">✚</span><span>Cancel anytime — no questions asked</span></li>
-              <li><span class="bullet">✚</span><span><strong>Limited to first 12 clients</strong></span></li>
-              <li><span class="bullet">✚</span><span><strong>Setup fees waived (FREE)</strong> for Standard & Premium during the 12-slot offer</span></li>
-            </ul>
+          <!-- Intro/Test Month Banner -->
+          <article class="offer-intro">
+            <div class="offer-intro-left">
+              <div class="intro-pill">Introductory Test Month • First 12 Clients</div>
+              <div style="font-size:1.18rem; font-weight:850; margin-bottom:6px;">
+                Full access for 30 days — cancel anytime.
+              </div>
+              <ul class="intro-bullets">
+                <li><span class="bullet">✦</span><span><strong>$97 one-time</strong> (normally $297–$997)</span></li>
+                <li><span class="bullet">✦</span><span><strong>Setup fees waived (FREE)</strong> for Standard & Premium during the 12-slot offer</span></li>
+                <li><span class="bullet">✦</span><span>Limited to first 12 clients before January 3, 2026</span></li>
+              </ul>
+            </div>
+
+            <div class="offer-intro-right">
+              <div class="intro-price">$97 <small>one-time</small></div>
+              <a
+                href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+                class="btn-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="btn-icon">📅</span>
+                <span>Claim a launch spot</span>
+              </a>
+            </div>
           </article>
 
+          <!-- Standard -->
           <article class="offer-card">
             <div class="tag">Standard Tier</div>
             <h3>“Never Miss a Call” Plan</h3>
@@ -690,6 +768,7 @@
             <div class="ideal"><strong>Ideal for:</strong> Solo operators who want every call handled professionally, like they’d do it themselves.</div>
           </article>
 
+          <!-- Premium -->
           <article class="offer-card premium">
             <div class="tag">Premium Tier</div>
             <h3>“Never Miss a Job” Plan</h3>
@@ -887,19 +966,35 @@
         </div>
 
         <div class="offer-grid">
-          <article class="offer-card highlight">
-            <div class="tag">Mes de prueba</div>
-            <h3>Solo el primer mes</h3>
-            <div class="price">$97 (pago único)</div>
-            <p><span style="color:var(--text-muted)">(normalmente $297–$997)</span></p>
-            <ul>
-              <li><span class="bullet">✚</span><span>Acceso completo a tu plan por 30 días</span></li>
-              <li><span class="bullet">✚</span><span>Cancela cuando quieras — sin preguntas</span></li>
-              <li><span class="bullet">✚</span><span><strong>Limitado a los primeros 12 clientes</strong></span></li>
-              <li><span class="bullet">✚</span><span><strong>Sin costo de instalación (GRATIS)</strong> para Estándar y Premium durante los 12 cupos</span></li>
-            </ul>
+          <!-- Intro/Test Month Banner -->
+          <article class="offer-intro">
+            <div class="offer-intro-left">
+              <div class="intro-pill">Mes de prueba • Primeros 12 clientes</div>
+              <div style="font-size:1.18rem; font-weight:850; margin-bottom:6px;">
+                Acceso completo por 30 días — cancela cuando quieras.
+              </div>
+              <ul class="intro-bullets">
+                <li><span class="bullet">✦</span><span><strong>$97 (pago único)</strong> (normalmente $297–$997)</span></li>
+                <li><span class="bullet">✦</span><span><strong>Sin costo de instalación (GRATIS)</strong> para Estándar y Premium durante los 12 cupos</span></li>
+                <li><span class="bullet">✦</span><span>Limitado a los primeros 12 clientes antes del 3 de enero, 2026</span></li>
+              </ul>
+            </div>
+
+            <div class="offer-intro-right">
+              <div class="intro-price">$97 <small>único</small></div>
+              <a
+                href="https://calendar.app.google/QVA2VxoaFsk66AWKA"
+                class="btn-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="btn-icon">📅</span>
+                <span>Reservar cupo</span>
+              </a>
+            </div>
           </article>
 
+          <!-- Standard -->
           <article class="offer-card">
             <div class="tag">Plan estándar</div>
             <h3>“Nunca Pierdas Una Llamada”</h3>
@@ -919,9 +1014,10 @@
               <li><span class="bullet">✚</span><span>Cobertura 24/7 — sin llamadas perdidas</span></li>
             </ul>
 
-            <div class="ideal"><strong>Ideal para:</strong> Dueños que quieren que cada llamada se atienda con profesionalismo, como si fuera el dueño mismo.</div>
+            <div class="ideal"><strong>Ideal para:</strong> Dueños que quieren que cada llamada se atienda con profesionalismo.</div>
           </article>
 
+          <!-- Premium -->
           <article class="offer-card premium">
             <div class="tag">Plan premium</div>
             <h3>“Nunca Pierdas Un Trabajo”</h3>
@@ -935,7 +1031,7 @@
               <li><span class="bullet">✚</span><span><strong>Llamada mensual de estrategia</strong> (30–45 min con Joseph)</span></li>
               <li><span class="bullet">✚</span><span><strong>Llamada de estrategia de 90 minutos</strong> contigo <strong>cada 90 días</strong></span></li>
               <li><span class="bullet">✚</span><span><strong>Ajustes incluidos:</strong> hasta <strong>3 ajustes del agente</strong> durante el primer mes, luego <strong>1 ajuste por mes</strong> (manejo prioritario)</span></li>
-              <li><span class="bullet">✚</span><span><strong>Soporte continuo prioritario</strong> para preguntas, orientación y uso estratégico del sistema telefónico con IA</span></li>
+              <li><span class="bullet">✚</span><span><strong>Soporte continuo prioritario</strong> para preguntas, orientación y uso estratégico del sistema</span></li>
               <li><span class="bullet">✚</span><span>Soporte prioritario + onboarding en la misma semana</span></li>
               <li><span class="bullet">✚</span><span>Acceso directo por WhatsApp para ajustes urgentes</span></li>
               <li><span class="bullet">✚</span><span>Reporte trimestral de impacto en ingresos</span></li>
@@ -944,33 +1040,6 @@
             </ul>
 
             <div class="ideal"><strong>Ideal para:</strong> Negocios en crecimiento que quieren filtrar clientes de alto valor y aumentar ingresos.</div>
-          </article>
-        </div>
-      </section>
-
-      <!-- WHY (ES) -->
-      <section id="why-es">
-        <div class="section-header">
-          <div class="section-label">¿Por qué Familia IA?</div>
-          <h2 class="section-title">Suena humano — protege ingresos.</h2>
-          <p class="section-sub">Setup hecho por nosotros, español culturalmente alineado, y un sistema que no depende de tu disponibilidad.</p>
-        </div>
-
-        <div class="offer-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-          <article class="offer-card">
-            <div class="tag">Natural</div>
-            <h3>No suena robótico</h3>
-            <p>Suena como un miembro de tu equipo — el cliente se queda en la llamada.</p>
-          </article>
-          <article class="offer-card">
-            <div class="tag">Bilingüe</div>
-            <h3>Confianza en español</h3>
-            <p>Español primero y bilingüe — genera confianza al instante.</p>
-          </article>
-          <article class="offer-card">
-            <div class="tag">Hecho por nosotros</div>
-            <h3>Cero dolores de cabeza</h3>
-            <p>Nosotros configuramos, entrenamos y ajustamos — tú trabajas y cobras.</p>
           </article>
         </div>
       </section>
@@ -1040,6 +1109,7 @@
 
       var navToggle = document.getElementById('lang-toggle-nav');
       var topToggle = document.getElementById('lang-toggle-top');
+      var topFlag = document.getElementById('top-flag');
       var floatToggle = document.getElementById('lang-toggle-float');
       var footerToggle = document.getElementById('footer-toggle');
 
@@ -1084,9 +1154,16 @@
           if (navCtaText) navCtaText.textContent = 'Agenda una consulta gratis';
 
           if (navToggle) navToggle.textContent = '🇲🇽 ES';
+
+          // Top big button should show EN target
+          if (topFlag) topFlag.textContent = '🇺🇸';
           if (topText) topText.textContent = 'View site in English';
+
+          // Floating button should show EN target
           if (floatFlag) floatFlag.textContent = '🇺🇸';
           if (floatText) floatText.textContent = 'EN';
+
+          // Footer toggle should show EN target
           if (footerFlag) footerFlag.textContent = '🇺🇸';
           if (footerText) footerText.textContent = 'View site in English';
         } else {
@@ -1099,9 +1176,16 @@
           if (navCtaText) navCtaText.textContent = 'Book a free consultation';
 
           if (navToggle) navToggle.textContent = '🇺🇸 EN';
+
+          // Top big button should show ES target
+          if (topFlag) topFlag.textContent = '🇲🇽';
           if (topText) topText.textContent = 'Ver sitio en Español';
+
+          // Floating button should show ES target
           if (floatFlag) floatFlag.textContent = '🇲🇽';
           if (floatText) floatText.textContent = 'ES';
+
+          // Footer toggle should show ES target
           if (footerFlag) footerFlag.textContent = '🇲🇽';
           if (footerText) footerText.textContent = 'Ver sitio en Español';
         }
