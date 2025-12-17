@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Bilingual AI phone agents that answer, qualify, and book jobs 24/7 for service businesses. January 2026 launch."
+    content="Bilingual AI phone agents that answer, qualify, and book jobs 24/7. January 2026 launch."
   />
+
   <style>
     :root {
       --bg: #02030a;
@@ -49,8 +50,9 @@
       padding: 20px 16px 44px;
     }
 
-    /* TOP BAR */
-
+    /* =========================
+       TOP NAV (Desktop/default)
+       ========================= */
     .nav {
       display: flex;
       align-items: center;
@@ -74,7 +76,9 @@
       display: flex; align-items: center; justify-content: center;
       color: #020309; font-size: 0.9rem; font-weight: 700;
       box-shadow: 0 0 0 2px rgba(2,3,10,0.95);
+      flex: 0 0 auto;
     }
+
     .logo-text { display: flex; flex-direction: column; gap: 2px; }
     .logo-main { font-size: 0.92rem; letter-spacing: 0.13em; text-transform: uppercase; }
     .logo-sub { font-size: 0.76rem; color: var(--text-muted); }
@@ -111,15 +115,15 @@
       box-shadow: 0 16px 34px rgba(0,0,0,0.9);
       font-weight: 600;
     }
-
     .btn-cta:active { transform: translateY(1px); box-shadow: 0 8px 20px rgba(0,0,0,0.9); }
+
     .btn-ghost { border: 1px solid rgba(121,143,191,0.8); background: rgba(5,11,21,0.96); color: var(--text-main); }
     .btn-toggle { border: 1px solid rgba(141,169,210,0.9); background: rgba(6,12,24,0.96); color: var(--text-main); font-size: 0.8rem; padding-inline: 11px; }
-
     .btn-icon { font-size: 0.9rem; }
 
-    /* LANGUAGE BANNER */
-
+    /* =========================
+       BIG CENTER LANGUAGE BUTTON
+       ========================= */
     .lang-banner {
       margin-top: 14px;
       padding: 10px 12px;
@@ -146,13 +150,13 @@
       align-items: center;
       gap: 10px;
     }
-
     .lang-switch-btn span.flag { font-size: 1.1rem; }
     .lang-switch-btn:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(0,0,0,0.85); }
     .lang-switch-btn:active { transform: translateY(1px); box-shadow: 0 6px 20px rgba(0,0,0,0.75); }
 
-    /* HERO */
-
+    /* =========================
+       HERO
+       ========================= */
     .hero {
       display: flex;
       flex-direction: column;
@@ -177,7 +181,6 @@
       line-height: 1.08;
       margin-bottom: 10px;
     }
-
     .hero-title span { color: var(--accent-green-soft); }
 
     .hero-sub {
@@ -197,8 +200,7 @@
 
     .hero-note { font-size: 0.82rem; color: var(--text-muted); }
 
-    /* "WHAT IT GIVES YOU" CARD (centered under hero) */
-
+    /* CENTER “WHAT IT GIVES YOU” CARD (under hero) */
     .hero-card {
       background:
         radial-gradient(circle at top left, rgba(75,141,255,0.26), transparent 55%),
@@ -239,8 +241,9 @@
     .hero-list li { display: flex; gap: 8px; margin-bottom: 5px; }
     .hero-list-icon { font-size: 0.95rem; color: var(--accent-green-soft); margin-top: 2px; }
 
-    /* VIDEO SECTION */
-
+    /* =========================
+       SECTIONS / VIDEO
+       ========================= */
     section { margin-top: 34px; }
 
     .section-header { text-align: center; margin-bottom: 16px; }
@@ -264,20 +267,8 @@
       margin-right: auto;
     }
 
-    .video-embed {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background: rgba(2,3,10,0.9);
-    }
-
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+    .video-embed { position: relative; width: 100%; padding-top: 56.25%; background: rgba(2,3,10,0.9); }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
     .video-fallback {
       position: absolute;
@@ -293,12 +284,12 @@
         radial-gradient(circle at bottom right, rgba(25,195,125,0.2), transparent 55%),
         rgba(2,3,10,0.92);
     }
-
     .video-fallback .play { font-size: 2.1rem; margin-bottom: 8px; }
     .video-fallback p { color: var(--text-muted); line-height: 1.55; margin-top: 6px; font-size: 0.92rem; }
 
-    /* COUNTDOWN */
-
+    /* =========================
+       COUNTDOWN
+       ========================= */
     .countdown {
       margin-top: 18px;
       padding: 14px 14px 12px;
@@ -315,14 +306,7 @@
       margin-right: auto;
     }
 
-    .timer {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
+    .timer { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
     .tbox {
       min-width: 84px;
       padding: 10px 10px 9px;
@@ -331,12 +315,12 @@
       background: rgba(5,11,24,0.96);
       box-shadow: 0 16px 40px rgba(0,0,0,0.9);
     }
-
     .tval { font-size: 1.45rem; font-weight: 750; }
     .tlabel { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
 
-    /* OFFER CARDS */
-
+    /* =========================
+       OFFER CARDS
+       ========================= */
     .offer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -369,16 +353,15 @@
 
     .offer-card h3 { font-size: 1.12rem; margin-bottom: 6px; }
     .offer-card h4 { font-size: 0.98rem; color: rgba(249,251,255,0.92); margin-bottom: 8px; font-weight: 650; }
-
-    .offer-card .price {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--accent-green);
-      margin: 4px 0 10px;
+    .offer-card .price { font-size: 1.35rem; font-weight: 800; color: var(--accent-green); margin: 4px 0 10px; }
+    .offer-card .setup {
+      font-size: 0.95rem;
+      color: rgba(249,251,255,0.92);
+      margin-top: -4px;
+      margin-bottom: 10px;
     }
-
+    .offer-card .setup strong { color: var(--accent-gold); }
     .offer-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.92rem; margin-bottom: 10px; }
-
     .offer-card ul { list-style: none; margin-top: 6px; }
     .offer-card li { display: flex; gap: 8px; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; font-size: 0.9rem; }
     .offer-card li .bullet { color: var(--accent-green-soft); margin-top: 2px; }
@@ -410,8 +393,9 @@
       line-height: 1.55;
     }
 
-    /* FINAL CTA */
-
+    /* =========================
+       FINAL CTA BAND
+       ========================= */
     .final-band {
       margin-top: 32px;
       padding: 16px 14px 18px;
@@ -431,6 +415,7 @@
       max-width: 980px;
       margin-left: auto;
       margin-right: auto;
+      text-align: left;
     }
 
     .final-text strong { color: var(--accent-gold); }
@@ -457,12 +442,10 @@
     .footer-toggle span.flag { font-size: 1rem; }
 
     /* LANGUAGE WRAPPERS */
-
     .lang-view { display: none; }
     .lang-view.active { display: block; }
 
     /* FLOATING TOGGLE */
-
     .lang-float-toggle {
       position: fixed;
       right: 14px;
@@ -480,30 +463,50 @@
       cursor: pointer;
       box-shadow: 0 14px 32px rgba(0,0,0,0.9);
     }
-
     .lang-float-toggle span.flag { font-size: 1.05rem; }
     .lang-float-toggle span.text { white-space: nowrap; }
 
-    /* RESPONSIVE */
-
+    /* =========================
+       RESPONSIVE
+       ========================= */
     @media (max-width: 860px) {
-      .nav { flex-direction: column; align-items: flex-start; }
-      .nav-right { justify-content: flex-start; }
-      .hero-card { text-align: left; }
       .final-band { text-align: center; justify-content: center; }
       .final-actions { justify-content: center; }
     }
 
+    /* ====== SINGLE-ROW MOBILE NAV ====== */
     @media (max-width: 640px) {
       .page { padding: 16px 12px 32px; }
-      .lang-float-toggle { right: 10px; bottom: 12px; }
-      .hero-card { padding: 14px 14px 14px; }
+
+      .nav {
+        top: 8px;
+        padding: 8px 10px;
+        border-radius: 18px;
+        max-width: 540px;
+        margin: 0 auto;
+        gap: 8px;
+        flex-wrap: nowrap;            /* SINGLE ROW */
+        align-items: center;
+      }
+
+      .logo-text { display: none; }   /* removes height */
+      .nav-left { gap: 8px; }
+
+      .nav-right { flex-wrap: nowrap; gap: 6px; }
+      .nav-pill { font-size: 0.72rem; padding: 3px 8px; }
+
+      .btn-toggle { padding: 6px 10px; font-size: 0.76rem; }
+      .btn-cta { padding: 6px 10px; font-size: 0.76rem; }
+
+      .lang-switch-btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <!-- TOP NAV (shared) -->
+
+    <!-- TOP NAV -->
     <header class="nav">
       <div class="nav-left">
         <div class="logo-mark">F</div>
@@ -512,6 +515,7 @@
           <div class="logo-sub" id="logo-sub">AI Phone Agents for service businesses</div>
         </div>
       </div>
+
       <div class="nav-right">
         <div class="nav-pill" id="nav-pill">For real owners</div>
         <button id="lang-toggle-nav" class="btn-toggle" type="button">🇺🇸 EN</button>
@@ -528,7 +532,7 @@
       </div>
     </header>
 
-    <!-- BIG CENTERED LANGUAGE BUTTON -->
+    <!-- BIG CENTER LANGUAGE BUTTON -->
     <div class="lang-banner">
       <button id="lang-toggle-top" class="lang-switch-btn" type="button">
         <span class="flag">🇲🇽</span>
@@ -607,7 +611,6 @@
 
         <div class="video-wrap">
           <div class="video-embed">
-            <!-- Replace this URL with your YouTube embed URL -->
             <iframe
               id="yt-en"
               src=""
@@ -616,14 +619,11 @@
               allowfullscreen
             ></iframe>
 
-            <!-- Shown when no video URL is set -->
             <div class="video-fallback" id="fallback-en">
               <div>
                 <div class="play">▶</div>
                 <div style="font-weight:700;">Video Placeholder</div>
-                <p>
-                  When your video is ready, we’ll drop in the YouTube embed URL and this turns into a live player.
-                </p>
+                <p>When your video is ready, we’ll drop in the YouTube embed URL and this turns into a live player.</p>
               </div>
             </div>
           </div>
@@ -664,6 +664,7 @@
               <li><span class="bullet">✚</span><span>Full access to your chosen tier for 30 days</span></li>
               <li><span class="bullet">✚</span><span>Cancel anytime — no questions asked</span></li>
               <li><span class="bullet">✚</span><span><strong>Limited to first 12 clients</strong></span></li>
+              <li><span class="bullet">✚</span><span><strong>Setup fees waived (FREE)</strong> for Standard & Premium during the 12-slot offer</span></li>
             </ul>
           </article>
 
@@ -671,6 +672,7 @@
             <div class="tag">Standard Tier</div>
             <h3>“Never Miss a Call” Plan</h3>
             <div class="price">$297 / month</div>
+            <div class="setup">Setup Fee: <strong>$499</strong> <span style="color:var(--text-muted)">(FREE during the 12-slot offer)</span></div>
             <p>Perfect for solopreneurs who want reliable, professional coverage without the hassle.</p>
 
             <ul>
@@ -679,7 +681,9 @@
               <li><span class="bullet">✚</span><span>Professional, natural-sounding voice that represents you</span></li>
               <li><span class="bullet">✚</span><span>Appointment booking + instant text/email confirmations</span></li>
               <li><span class="bullet">✚</span><span>Dashboard: logs, recordings, and analytics</span></li>
-              <li><span class="bullet">✚</span><span>3 hours support/month (setup, training, tweaks)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Included adjustments:</strong> up to <strong>3 agent adjustments</strong> during the first month, then <strong>1 adjustment per month</strong> thereafter</span></li>
+              <li><span class="bullet">✚</span><span><strong>Ongoing support</strong> for questions, guidance, and best-practice use of your AI agent</span></li>
+              <li><span class="bullet">✚</span><span><strong>30-minute business growth strategy call</strong> (monthly)</span></li>
               <li><span class="bullet">✚</span><span>24/7 coverage — no missed calls, no downtime</span></li>
             </ul>
 
@@ -690,12 +694,16 @@
             <div class="tag">Premium Tier</div>
             <h3>“Never Miss a Job” Plan</h3>
             <div class="price">$997 / month</div>
+            <div class="setup">Setup Fee: <strong>$1,499</strong> <span style="color:var(--text-muted)">(FREE during the 12-slot offer)</span></div>
             <p>Everything in Standard, plus premium extras for filtering and revenue protection.</p>
 
             <ul>
               <li><span class="bullet">✚</span><span><strong>Advanced customer qualification system</strong> to weed out tire kickers and price shoppers</span></li>
               <li><span class="bullet">✚</span><span>Unlimited scenario scripting + ongoing optimization</span></li>
-              <li><span class="bullet">✚</span><span><strong>Monthly Strategy Call</strong> (30–45 min with Joseph)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Dedicated Monthly Strategy Call</strong> (30–45 min with Joseph)</span></li>
+              <li><span class="bullet">✚</span><span><strong>90-minute strategy call</strong> with you <strong>every 90 days</strong></span></li>
+              <li><span class="bullet">✚</span><span><strong>Included adjustments:</strong> up to <strong>3 agent adjustments</strong> during the first month, then <strong>1 adjustment per month</strong> thereafter (priority handling)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Ongoing priority support</strong> for questions, guidance, and strategic use of your AI phone system</span></li>
               <li><span class="bullet">✚</span><span>Priority support + same-week onboarding</span></li>
               <li><span class="bullet">✚</span><span>Direct WhatsApp access for urgent adjustments</span></li>
               <li><span class="bullet">✚</span><span>Quarterly performance report with revenue impact breakdown</span></li>
@@ -835,7 +843,6 @@
 
         <div class="video-wrap">
           <div class="video-embed">
-            <!-- Replace this URL with your YouTube embed URL -->
             <iframe
               id="yt-es"
               src=""
@@ -844,14 +851,11 @@
               allowfullscreen
             ></iframe>
 
-            <!-- Shown when no video URL is set -->
             <div class="video-fallback" id="fallback-es">
               <div>
                 <div class="play">▶</div>
                 <div style="font-weight:700;">Video Placeholder</div>
-                <p>
-                  Cuando tu video esté listo, colocamos la URL de embed de YouTube y esto se convierte en un reproductor.
-                </p>
+                <p>Cuando tu video esté listo, colocamos la URL de embed de YouTube y esto se convierte en un reproductor.</p>
               </div>
             </div>
           </div>
@@ -892,6 +896,7 @@
               <li><span class="bullet">✚</span><span>Acceso completo a tu plan por 30 días</span></li>
               <li><span class="bullet">✚</span><span>Cancela cuando quieras — sin preguntas</span></li>
               <li><span class="bullet">✚</span><span><strong>Limitado a los primeros 12 clientes</strong></span></li>
+              <li><span class="bullet">✚</span><span><strong>Sin costo de instalación (GRATIS)</strong> para Estándar y Premium durante los 12 cupos</span></li>
             </ul>
           </article>
 
@@ -899,6 +904,7 @@
             <div class="tag">Plan estándar</div>
             <h3>“Nunca Pierdas Una Llamada”</h3>
             <div class="price">$297 / mes</div>
+            <div class="setup">Cuota de instalación: <strong>$499</strong> <span style="color:var(--text-muted)">(GRATIS durante los 12 cupos)</span></div>
             <p>Perfecto para solopreneurs que quieren cobertura profesional sin complicaciones.</p>
 
             <ul>
@@ -907,7 +913,9 @@
               <li><span class="bullet">✚</span><span>Voz profesional y natural que te represente</span></li>
               <li><span class="bullet">✚</span><span>Agenda + confirmaciones por texto/correo</span></li>
               <li><span class="bullet">✚</span><span>Panel: registros, grabaciones y analíticas</span></li>
-              <li><span class="bullet">✚</span><span>3 horas de soporte/mes (setup, ajustes, entrenamiento)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Ajustes incluidos:</strong> hasta <strong>3 ajustes del agente</strong> durante el primer mes, luego <strong>1 ajuste por mes</strong></span></li>
+              <li><span class="bullet">✚</span><span><strong>Soporte continuo</strong> para preguntas, orientación y buenas prácticas del uso del agente</span></li>
+              <li><span class="bullet">✚</span><span><strong>Llamada de estrategia de crecimiento (30 min)</strong> (mensual)</span></li>
               <li><span class="bullet">✚</span><span>Cobertura 24/7 — sin llamadas perdidas</span></li>
             </ul>
 
@@ -918,12 +926,16 @@
             <div class="tag">Plan premium</div>
             <h3>“Nunca Pierdas Un Trabajo”</h3>
             <div class="price">$997 / mes</div>
+            <div class="setup">Cuota de instalación: <strong>$1,499</strong> <span style="color:var(--text-muted)">(GRATIS durante los 12 cupos)</span></div>
             <p>Todo lo del estándar, con extras premium para filtrar y proteger ingresos.</p>
 
             <ul>
               <li><span class="bullet">✚</span><span><strong>Sistema avanzado de calificación</strong> para filtrar curiosos y cazadores de precio</span></li>
               <li><span class="bullet">✚</span><span>Escenarios ilimitados + optimización continua</span></li>
               <li><span class="bullet">✚</span><span><strong>Llamada mensual de estrategia</strong> (30–45 min con Joseph)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Llamada de estrategia de 90 minutos</strong> contigo <strong>cada 90 días</strong></span></li>
+              <li><span class="bullet">✚</span><span><strong>Ajustes incluidos:</strong> hasta <strong>3 ajustes del agente</strong> durante el primer mes, luego <strong>1 ajuste por mes</strong> (manejo prioritario)</span></li>
+              <li><span class="bullet">✚</span><span><strong>Soporte continuo prioritario</strong> para preguntas, orientación y uso estratégico del sistema telefónico con IA</span></li>
               <li><span class="bullet">✚</span><span>Soporte prioritario + onboarding en la misma semana</span></li>
               <li><span class="bullet">✚</span><span>Acceso directo por WhatsApp para ajustes urgentes</span></li>
               <li><span class="bullet">✚</span><span>Reporte trimestral de impacto en ingresos</span></li>
@@ -1110,7 +1122,7 @@
       if (floatToggle) floatToggle.addEventListener('click', toggleLang);
       if (footerToggle) footerToggle.addEventListener('click', toggleLang);
 
-      // ====== Countdown (Jan 3, 2026 23:59:59 local) ======
+      // ====== Countdown (Jan 3, 2026 23:59:59) ======
       var targetDate = new Date("January 3, 2026 23:59:59").getTime();
 
       function tick(prefix) {
@@ -1152,3 +1164,4 @@
   </script>
 </body>
 </html>
+```0
